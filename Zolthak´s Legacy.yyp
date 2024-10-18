@@ -34,7 +34,9 @@
   },
   "name":"Zolthak´s Legacy",
   "resources":[
+    {"id":{"name":"obj_ezen_run","path":"objects/obj_ezen_run/obj_ezen_run.yy",},},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
+    {"id":{"name":"spr_ezen_run","path":"sprites/spr_ezen_run/spr_ezen_run.yy",},},
   ],
   "resourceType":"GMProject",
   "resourceVersion":"2.0",
