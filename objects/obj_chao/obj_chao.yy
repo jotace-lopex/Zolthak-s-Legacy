@@ -1,9 +1,9 @@
 {
   "$GMObject":"",
-  "%Name":"obj_block",
+  "%Name":"obj_chao",
   "eventList":[],
   "managed":true,
-  "name":"obj_block",
+  "name":"obj_chao",
   "overriddenProperties":[],
   "parent":{
     "name":"Objetos",
@@ -28,8 +28,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_block",
-    "path":"sprites/spr_block/spr_block.yy",
+    "name":"spr_chao",
+    "path":"sprites/spr_chao/spr_chao.yy",
   },
   "spriteMaskId":null,
   "visible":true,

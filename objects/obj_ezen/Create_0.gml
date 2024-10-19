@@ -1,8 +1,10 @@
-// Inherit the parent event
-event_inherited();
+//Movimento
+dir_mov = 0;
+vel_mov = 2;
+velx = 0;
+vely = 0;
 
-vida_max = 10;
-vida_atual = vida_max;
-
-max_velh = 4;
-max_velv = 6;
+//Salto
+grav = .275
+vel_final = 4;
+vel_pulo = -6.15;
