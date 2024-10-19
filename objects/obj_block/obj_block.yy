@@ -1,9 +1,9 @@
 {
   "$GMObject":"",
-  "%Name":"obj_ezen_run",
+  "%Name":"obj_block",
   "eventList":[],
   "managed":true,
-  "name":"obj_ezen_run",
+  "name":"obj_block",
   "overriddenProperties":[],
   "parent":{
     "name":"Objetos",
@@ -28,8 +28,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_ezen_run",
-    "path":"sprites/spr_ezen_run/spr_ezen_run.yy",
+    "name":"spr_block",
+    "path":"sprites/spr_block/spr_block.yy",
   },
   "spriteMaskId":null,
   "visible":true,
