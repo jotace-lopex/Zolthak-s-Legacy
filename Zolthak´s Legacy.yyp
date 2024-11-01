@@ -37,8 +37,11 @@
   },
   "name":"Zolthak´s Legacy",
   "resources":[
+    {"id":{"name":"Fnt_menu","path":"fonts/Fnt_menu/Fnt_menu.yy",},},
     {"id":{"name":"obj_chao","path":"objects/obj_chao/obj_chao.yy",},},
     {"id":{"name":"obj_ezen","path":"objects/obj_ezen/obj_ezen.yy",},},
+    {"id":{"name":"obj_menu","path":"objects/obj_menu/obj_menu.yy",},},
+    {"id":{"name":"menu_inicio","path":"rooms/menu_inicio/menu_inicio.yy",},},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
     {"id":{"name":"spr_chao","path":"sprites/spr_chao/spr_chao.yy",},},
     {"id":{"name":"spr_ezen_run","path":"sprites/spr_ezen_run/spr_ezen_run.yy",},},
@@ -46,6 +49,7 @@
   "resourceType":"GMProject",
   "resourceVersion":"2.0",
   "RoomOrderNodes":[
+    {"roomId":{"name":"menu_inicio","path":"rooms/menu_inicio/menu_inicio.yy",},},
     {"roomId":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
   ],
   "templateType":"game",
