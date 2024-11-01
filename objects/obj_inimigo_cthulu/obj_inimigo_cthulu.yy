@@ -33,7 +33,10 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":null,
+  "spriteId":{
+    "name":"spr_inimigo_cthulu_parado",
+    "path":"sprites/spr_inimigo_cthulu_parado/spr_inimigo_cthulu_parado.yy",
+  },
   "spriteMaskId":null,
   "visible":true,
 }

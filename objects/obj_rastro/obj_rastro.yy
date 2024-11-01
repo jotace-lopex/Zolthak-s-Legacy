@@ -31,8 +31,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_player_correndo_2",
-    "path":"sprites/spr_player_correndo_2/spr_player_correndo_2.yy",
+    "name":"spr_player_dash",
+    "path":"sprites/spr_player_dash/spr_player_dash.yy",
   },
   "spriteMaskId":null,
   "visible":true,

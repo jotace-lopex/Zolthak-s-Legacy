@@ -34,12 +34,12 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_player_parado1_3",
-    "path":"sprites/spr_player_parado1_3/spr_player_parado1_3.yy",
+    "name":"spr_player_parado",
+    "path":"sprites/spr_player_parado/spr_player_parado.yy",
   },
   "spriteMaskId":{
-    "name":"spr_player_base_3",
-    "path":"sprites/spr_player_base_3/spr_player_base_3.yy",
+    "name":"spr_player_base",
+    "path":"sprites/spr_player_base/spr_player_base.yy",
   },
   "visible":true,
 }

@@ -26,7 +26,7 @@ if (estado != "dash") {
 // Iniciando a máquina de estados
 switch (estado) {
     case "parado": {
-        sprite_index = spr_player_parado1;
+        sprite_index = spr_player_parado;
 
         if (right || left) {
             estado = "movendo";
