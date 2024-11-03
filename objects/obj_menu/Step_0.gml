@@ -27,5 +27,26 @@ if (keyboard_check_pressed(vk_enter))
 	menu[atual].funcao();
 }
 
-//fazendo o valor da margem aumentar
-margem = lerp(margem, 20, .2);
+// Fazendo o valor da margem aumentar
+margem = lerp(margem, 20, 0.2); // 20 é a distância de afastamento. Você pode aumentar ou diminuir esse valor.
+
+
+
+if (room == rm_configuracao || room == rm_creditos) {
+    var pos_x = 20;
+    var pos_y = 20;
+
+    // Verificar se o clique do mouse está sobre a seta
+    if (mouse_check_button_pressed(mb_left)) {
+        if (mouse_x >= pos_x && mouse_x <= pos_x + sprite_get_width(spr_seta) &&
+            mouse_y >= pos_y && mouse_y <= pos_y + sprite_get_height(spr_seta)) 
+        {
+            room_goto(rm_menu); // Substitua "rm_menu" pelo nome da sala de menu principal
+        }
+    }
+}
+
+
+
+
+

@@ -10,16 +10,26 @@ opcao1 =
 	
 	funcao : function()
 	{
-		room_goto(Room1);
+		room_goto(rm_jogo);
 	},
 }
 opcao2 =
 {
 	texto : "Configurações",
+	funcao : function()
+	{
+		room_goto(rm_configuracao);
+	},
 }
+
 opcao3 =
 {
 	texto: "Créditos",
+	funcao : function()
+	{
+		room_goto(rm_creditos);
+	},
+	
 }
 opcao4 =
 {
@@ -39,3 +49,4 @@ atual = 0;
 
 // margem do menu
 margem = 0;
+
