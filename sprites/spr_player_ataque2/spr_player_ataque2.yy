@@ -64,7 +64,7 @@
     },
     "name":"spr_player_ataque2",
     "playback":1,
-    "playbackSpeed":12.0,
+    "playbackSpeed":17.0,
     "playbackSpeedType":0,
     "resourceType":"GMSequence",
     "resourceVersion":"2.0",

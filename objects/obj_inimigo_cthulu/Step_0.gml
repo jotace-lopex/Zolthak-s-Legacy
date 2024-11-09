@@ -1,18 +1,25 @@
 /// @description Inserir descrição aqui
 // Você pode escrever seu código neste editor
 
-var chao = place_meeting(x, y + 1, obj_block);
+var _chao = place_meeting(x, y + 1, obj_block);
 
-if (!chao)
+if (!_chao)
 {
 	velv += GRAVIDADE * massa;
 	
+}
+
+if (mouse_check_button_pressed(mb_right))
+{
+	estado = "attack";
 }
 
 switch(estado)
 {
 	case"parado":
 	{
+		velh = 0;
+		timer_estado++;
 		if(sprite_index != spr_inimigo_cthulu_parado)
 		{
 			image_index = 0;
@@ -24,19 +31,47 @@ switch(estado)
 		{
 			if(mouse_check_button_pressed(mb_right))
 			{
-				estado = "dano";
+				estado = "hit";
 			}
 		}
+		
+		//indo para o estado de patrulha
+		if (irandom(timer_estado) > 300)
+		{
+			estado = choose("walk", "parado", "walk");
+			timer_estado = 0;
+		}
+		
 		break;
 	}
 	
-	case"dano":
+	case "walk":
+	{
+		timer_estado++;
+		if (sprite_index != spr_inimigo_cthulu_andando)
+		{
+			image_index = 0;
+			velh = choose (1, -1);
+		}
+		sprite_index = spr_inimigo_cthulu_andando
+		
+		//condição de saída do estado
+		if (irandom(timer_estado) > 300)
+		{
+			estado = choose("parado", "parado", "walk");
+			timer_estado = 0;
+		}
+		
+		break;
+	}
+	
+	case"hit":
 	{
 		if (sprite_index != spr_inimigo_cthulu_dano)
 		{
 			//Iniciando o que for preciso para esse estado
 			image_index = 0;
-			vida_atual--;
+			//vida_atual--;
 		}
 		sprite_index = spr_inimigo_cthulu_dano;
 		
@@ -56,6 +91,25 @@ switch(estado)
 		break;
 	}
 	
+	case"attack":
+	{
+		velh = 0;
+		if (sprite_index != spr_inimigo_cthulu_atq1)
+		{
+			image_index = 0;
+		}
+		sprite_index = spr_inimigo_cthulu_atq1;
+		
+		if (image_index > image_number-1)
+		{
+			estado = "parado";
+		}
+		
+		//Saindo do estado
+		
+		break;
+	}
+	
 	case"morto":
 	{
 		if (sprite_index != spr_inimigo_cthulu_morte)
@@ -67,7 +121,10 @@ switch(estado)
 		
 		if (image_index > image_number-1)
 		{
-			instance_destroy();
+			image_speed = 0;
+			image_alpha -= .01;
+			
+			if (image_alpha <= 0) instance_destroy();
 		}
 	}
 	
