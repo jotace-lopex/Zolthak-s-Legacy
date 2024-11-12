@@ -56,7 +56,7 @@
     ],
     "top":0,
   },
-  "origin":7,
+  "origin":9,
   "parent":{
     "name":"cthulu(chefe)",
     "path":"folders/Sprites/Inimigos/cthulu(chefe).yy",
@@ -150,7 +150,7 @@
     ],
     "visibleRange":null,
     "volume":1.0,
-    "xorigin":69,
+    "xorigin":74,
     "yorigin":67,
   },
   "swatchColours":null,

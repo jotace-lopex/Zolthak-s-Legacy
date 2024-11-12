@@ -33,7 +33,7 @@
   ],
   "name":"spr_inimigo_cthulu_morte",
   "nineSlice":null,
-  "origin":7,
+  "origin":9,
   "parent":{
     "name":"cthulu(chefe)",
     "path":"folders/Sprites/Inimigos/cthulu(chefe).yy",
@@ -115,7 +115,7 @@
     ],
     "visibleRange":null,
     "volume":1.0,
-    "xorigin":69,
+    "xorigin":67,
     "yorigin":67,
   },
   "swatchColours":null,
