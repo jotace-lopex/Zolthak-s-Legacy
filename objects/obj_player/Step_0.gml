@@ -12,6 +12,11 @@ _dash = keyboard_check_pressed(ord("K"));
 // Buff de ataque que diminui ao longo do tempo
 if(ataque_buff > 0) ataque_buff -= 1;
 
+// Reduzindo o cooldown do dash
+if (dash_cooldown > 0) {
+    dash_cooldown--;
+}
+
 // Verificando a recarga de estamina
 if (estamina_atual < estamina_max) {
     estamina_recarregando++;  // Incrementa o temporizador de recarga a cada Step
@@ -90,6 +95,24 @@ switch (estado) {
             dash_timer = dash_duration;
             dash_cooldown = 30;
         }
+		 // --- Início do código para rastro ---
+	    // Reduzindo o temporizador do rastro
+	    if (rastro_timer <= 0) 
+			{
+		        var _rastro = instance_create_layer(x, y, layer, obj_rastro_run);
+		        _rastro.image_alpha = 0.5;                 // Inicia com opacidade máxima
+		        _rastro.image_blend = c_red;              // Cor inicial do rastro
+		        _rastro.x = lerp(_rastro.x, x, 0.5);        // Suavizando a posição inicial usando lerp
+		        _rastro.y = lerp(_rastro.y, y, 0.5);
+        
+		        // Reseta o temporizador para que o rastro seja criado novamente depois de alguns steps
+		        rastro_timer = 3;  // Ajuste para espaçar o rastro
+		    } 
+		else 
+			{
+		        rastro_timer--;   // Reduzindo o temporizador
+		    }
+	    // --- Fim do código para rastro ---
         break;
     }
 
@@ -116,6 +139,35 @@ switch (estado) {
 	            dash_cooldown = 30;
 			}
         }
+		
+		// --- Início do código para rastro ---
+	    // Reduzindo o temporizador do rastro
+	    if (rastro_timer <= 0) 
+			{
+				if (velv > 0) {
+			        var _rastro = instance_create_layer(x, y, layer, obj_rastro_jump);
+			        _rastro.image_alpha = 0.5;
+			        _rastro.image_blend = c_red;
+			        _rastro.x = lerp(_rastro.x, x, 0.5);
+			        _rastro.y = lerp(_rastro.y, y, 0.5);
+			        rastro_timer = 1;  // espaçar o rastro
+				}
+				
+				if (velv <= 0)
+				{
+					var _rastro = instance_create_layer(x, y, layer, obj_rastro_fall);
+			        _rastro.image_alpha = 0.5;
+			        _rastro.image_blend = c_red;
+			        _rastro.x = lerp(_rastro.x, x, 0.5);
+			        _rastro.y = lerp(_rastro.y, y, 0.5);
+			        rastro_timer = 1;  // espaçar o rastro
+				}
+		    } 
+		else 
+			{
+		        rastro_timer--;   // Reduzindo o temporizador
+		    }
+	    // --- Fim do código para rastro ---
         break;
     }
 
@@ -196,9 +248,11 @@ switch (estado) {
 
         // Criando o rastro do dash
         if (dash_timer % 2 == 0) {
-            var _rastro = instance_create_layer(x, y, layer, obj_rastro);
-            _rastro.image_alpha = 0.5;
+            var _rastro = instance_create_layer(x, y, layer, obj_rastro_dash);
+            _rastro.image_alpha = 0.9;
             _rastro.image_blend = c_red; // Cor do rastro
+			_rastro.x = lerp(_rastro.x, x, 0.5);
+			_rastro.y = lerp(_rastro.y, y, 0.5);
         }
 
         // Fim do dash
@@ -207,10 +261,13 @@ switch (estado) {
             velh = 0;
         }
         break;
+		
     }
-}
-
-// Reduzindo o cooldown do dash
-if (dash_cooldown > 0) {
-    dash_cooldown--;
+	
+	//Estado padrão PARADO
+	default:
+	{
+		estado = "parado";
+	}
+	
 }

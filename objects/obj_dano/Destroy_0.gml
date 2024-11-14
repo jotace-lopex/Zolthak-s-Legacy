@@ -1,7 +1,5 @@
-/// @description Inserir descrição aqui
-// Você pode escrever seu código neste editor
-if (pai)
+/// Evento Destroy de obj_dano
+if (instance_exists(pai)) 
 {
-	//limpar player nas informações do obj pai
-	pai.dano = noone;
+    pai.dano = noone;
 }
