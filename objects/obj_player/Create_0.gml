@@ -39,3 +39,7 @@ dash_cooldown = 0;     // Tempo de recarga para o dash
 //rastro movendo
 rastro_timer = 0;         // Temporizador para controlar a criação de rastro
 rastro_duracao = 15;      // Duração do rastro em steps (ajuste conforme desejado)
+
+
+//pulo duplo
+pulos_restantes = 1; // 1 pulo normal + 1 pulo duplo

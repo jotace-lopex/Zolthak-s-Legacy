@@ -129,19 +129,22 @@ switch (estado) {
             }
         }
 
-        if (_chao) {
-            estado = "parado";
-            velv = 0;
+         // Verifica se o jogador está no chão
+    if (_chao) {
+        estado = "parado";
+        velv = 0;
+        pulos_restantes = 1; // Resetar pulos restantes ao tocar o chão
+    }
+	
+	else 
+	{
+        // Se não estiver no chão, verifique se pode pular novamente
+        if (_jump && pulos_restantes > 0) {
+            // Pulo duplo
+            velv = -max_velv; // Ajuste para a velocidade do pulo
+            pulos_restantes -= 1; // Reduzir o número de pulos restantes
         }
-
-        if (_dash && dash_cooldown <= 0 && estamina_atual > 0) {
-			if (_right || _left)
-			{
-	            estado = "dash";
-	            dash_timer = dash_duration;
-	            dash_cooldown = 30;
-			}
-        }
+    }
 		
 		// --- Início do código para rastro ---
 	    // Reduzindo o temporizador do rastro
