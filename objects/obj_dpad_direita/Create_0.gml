@@ -3,7 +3,7 @@
 
 // Inherit the parent event
 event_inherited();
-// Define a posição do botão no visor
+
 x = 250;
 y = 640;
 
@@ -14,3 +14,4 @@ desired_height = 100;
 // Calcula a escala com base nas dimensões do sprite original
 scale_x = desired_width / sprite_width;
 scale_y = desired_height / sprite_height;
+

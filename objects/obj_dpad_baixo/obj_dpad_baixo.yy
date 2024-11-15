@@ -12,8 +12,8 @@
     "path":"folders/Objetos/Botões.yy",
   },
   "parentObjectId":{
-    "name":"obj_botao_pai_jogo",
-    "path":"objects/obj_botao_pai_jogo/obj_botao_pai_jogo.yy",
+    "name":"obj_botao_pai",
+    "path":"objects/obj_botao_pai/obj_botao_pai.yy",
   },
   "persistent":false,
   "physicsAngularDamping":0.1,

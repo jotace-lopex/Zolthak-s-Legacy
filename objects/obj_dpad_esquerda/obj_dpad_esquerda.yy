@@ -3,6 +3,7 @@
   "%Name":"obj_dpad_esquerda",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
   "name":"obj_dpad_esquerda",
@@ -12,8 +13,8 @@
     "path":"folders/Objetos/Botões.yy",
   },
   "parentObjectId":{
-    "name":"obj_botao_pai_jogo",
-    "path":"objects/obj_botao_pai_jogo/obj_botao_pai_jogo.yy",
+    "name":"obj_botao_pai",
+    "path":"objects/obj_botao_pai/obj_botao_pai.yy",
   },
   "persistent":false,
   "physicsAngularDamping":0.1,

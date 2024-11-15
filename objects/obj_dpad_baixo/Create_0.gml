@@ -3,9 +3,7 @@
 
 // Inherit the parent event
 event_inherited();
-
-// Define a posição do botão no visor
-x = 230;
+x = 200;
 y = 600;
 
 // Define a largura e altura desejadas para o botão

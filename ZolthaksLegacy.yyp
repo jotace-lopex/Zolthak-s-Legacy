@@ -53,7 +53,7 @@
     {"id":{"name":"Fnt_menu","path":"fonts/Fnt_menu/Fnt_menu.yy",},},
     {"id":{"name":"obj_block","path":"objects/obj_block/obj_block.yy",},},
     {"id":{"name":"obj_botao_atk","path":"objects/obj_botao_atk/obj_botao_atk.yy",},},
-    {"id":{"name":"obj_botao_pai_jogo","path":"objects/obj_botao_pai_jogo/obj_botao_pai_jogo.yy",},},
+    {"id":{"name":"obj_botao_pai","path":"objects/obj_botao_pai/obj_botao_pai.yy",},},
     {"id":{"name":"obj_camera","path":"objects/obj_camera/obj_camera.yy",},},
     {"id":{"name":"obj_controlador","path":"objects/obj_controlador/obj_controlador.yy",},},
     {"id":{"name":"obj_dano","path":"objects/obj_dano/obj_dano.yy",},},
