@@ -7,7 +7,6 @@
 opcao1 =
 {
 	texto : "Iniciar Jogo",
-	
 	funcao : function()
 	{
 		room_goto(rm_jogo);
@@ -33,8 +32,7 @@ opcao3 =
 }
 opcao4 =
 {
-	texto : "Sair",
-	
+	texto : "Sair",	
 	funcao : function()
 	{
 		game_end();

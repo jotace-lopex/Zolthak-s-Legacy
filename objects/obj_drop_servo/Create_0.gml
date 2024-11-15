@@ -1,4 +1,8 @@
 /// @description Inserir descrição aqui
 // Você pode escrever seu código neste editor
+
+// Inherit the parent event
+event_inherited();
+
 image_alpha = 0; // Inicia invisível
-fade_speed = 0.01; // Velocidade do fade-in (ajuste conforme desejado)
+fade_speed = 0.04;

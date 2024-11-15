@@ -1,21 +1,19 @@
 {
   "$GMObject":"",
-  "%Name":"obj_drop_servo",
+  "%Name":"obj_dpad_esquerda",
   "eventList":[
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":{"name":"obj_player","path":"objects/obj_player/obj_player.yy",},"eventNum":0,"eventType":4,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_drop_servo",
+  "name":"obj_dpad_esquerda",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objetos",
-    "path":"folders/Objetos.yy",
+    "name":"Botões",
+    "path":"folders/Objetos/Botões.yy",
   },
   "parentObjectId":{
-    "name":"obj_entidade",
-    "path":"objects/obj_entidade/obj_entidade.yy",
+    "name":"obj_botao_pai_jogo",
+    "path":"objects/obj_botao_pai_jogo/obj_botao_pai_jogo.yy",
   },
   "persistent":false,
   "physicsAngularDamping":0.1,
@@ -35,8 +33,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_drop_servo",
-    "path":"sprites/spr_drop_servo/spr_drop_servo.yy",
+    "name":"spr_seta_esquerda",
+    "path":"sprites/spr_seta_esquerda/spr_seta_esquerda.yy",
   },
   "spriteMaskId":null,
   "visible":true,

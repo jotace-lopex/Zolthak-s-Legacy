@@ -145,7 +145,7 @@ switch(estado)
 			
 			if (image_alpha <= 0) 
 			{
-				if (irandom(99) < 30) 
+				if (irandom(99) < 50) 
 				{
 					instance_create_layer(x + sprite_width/7, y - sprite_height/2.5, layer, obj_drop_servo);
 				}

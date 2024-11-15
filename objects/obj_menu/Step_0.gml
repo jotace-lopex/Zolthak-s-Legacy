@@ -1,17 +1,18 @@
 /// @description Inserir descrição aqui
 // Você pode escrever seu código neste editor
-
+var _touch_up = obj_dpad_cima.toque;
+var _touch_down = obj_dpad_baixo.toque;
 
 // mudando de opção
 // descendo pelo menu
-if (keyboard_check_pressed(vk_down))
+if (keyboard_check_pressed(vk_down) || _touch_down)
 {
 	atual++;
 	margem = 0;
 }
 
 //subindo no menu
-if (keyboard_check_pressed(vk_up)) 
+if (keyboard_check_pressed(vk_up) || _touch_up) 
 {	
 	atual--;
 	//zerando a margem

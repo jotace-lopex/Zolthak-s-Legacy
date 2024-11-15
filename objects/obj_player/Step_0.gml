@@ -1,12 +1,15 @@
 // Variáveis de controle de entrada
 var _right, _left, _jump, _attack, _dash;
-var _chao = place_meeting(x, y + 1, obj_block); // Verificação de chão
+var _chao = place_meeting(x, y + 1, obj_block);
+var _touch_right = obj_dpad_direita.toque;
+var _touch_left = obj_dpad_esquerda.toque;
+var _touch_atk = obj_botao_atk.toque;
 
-// Entrada do jogador
-_right = keyboard_check(ord("D"));
-_left = keyboard_check(ord("A"));
+// Entrada do jogador controles
+_right = keyboard_check_pressed(ord("D")) || _touch_right;
+_left = keyboard_check_pressed(ord("A")) || _touch_left;
 _jump = keyboard_check_pressed(vk_space);
-_attack = keyboard_check_pressed(ord("J"));
+_attack = keyboard_check_pressed(ord("J")) || _touch_atk;
 _dash = keyboard_check_pressed(ord("K"));
 
 // Buff de ataque que diminui ao longo do tempo
