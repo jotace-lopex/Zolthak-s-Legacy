@@ -6,8 +6,8 @@ var _touch_left = obj_dpad_esquerda.toque;
 var _touch_atk = obj_botao_atk.toque;
 
 // Entrada do jogador controles
-_right = keyboard_check_pressed(ord("D")) || _touch_right;
-_left = keyboard_check_pressed(ord("A")) || _touch_left;
+_right = keyboard_check(ord("D")) || _touch_right;
+_left = keyboard_check(ord("A")) || _touch_left;
 _jump = keyboard_check_pressed(vk_space);
 _attack = keyboard_check_pressed(ord("J")) || _touch_atk;
 _dash = keyboard_check_pressed(ord("K"));
