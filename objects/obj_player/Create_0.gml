@@ -9,13 +9,19 @@ _cam.alvo = id;
 event_inherited();
 
 // Configurações de vida do jogador
-vida_max = 10;
+vida_max = 30;
 vida_atual = vida_max;
 
 //Configuração de estamina
 estamina_max = 5;
 estamina_atual = estamina_max;
 estamina_recarregando = 0;
+
+//Configuração energia
+energia_max = 10;
+energia_atual = energia_max;
+energia_recarregando = 0;
+custo_kaise_beam = 7;
 
 // Configurações de velocidade máxima
 max_velh = 3;
@@ -29,6 +35,7 @@ ataque = 1;
 posso = true;
 ataque_mult = 1;
 ataque_buff = room_speed;
+skill_beam = noone;
 
 // Variáveis do dash
 dash_speed = 10;       // Velocidade do dash

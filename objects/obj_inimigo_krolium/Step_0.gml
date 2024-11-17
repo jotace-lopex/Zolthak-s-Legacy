@@ -71,6 +71,7 @@ switch(estado)
 	
 	case"hit":
 	{
+		velh = 0;
 		if (sprite_index != spr_inimigo_krolium_dano)
 		{
 			//Iniciando o que for preciso para esse estado
@@ -101,6 +102,8 @@ switch(estado)
 		if (sprite_index != spr_inimigo_krolium_atq1)
 		{
 			image_index = 0;
+			posso = true;
+			dano = noone;
 		}
 		sprite_index = spr_inimigo_krolium_atq1;
 		
@@ -112,9 +115,12 @@ switch(estado)
 		//criando o dano
 		if (image_index >= 3 && dano == noone && image_index < 5)
 		{
-			dano = instance_create_layer(x + sprite_width/3, y - sprite_height/3, layer, obj_dano);
+			dano = instance_create_layer(x + sprite_width/4, y - sprite_height/3, layer, obj_dano);
 			dano.dano = ataque;
 			dano.pai = id;
+			// Define o tamanho específico do objeto de dano
+		    dano.image_xscale = 3; // Altera a escala horizontal (2x maior)
+		    dano.image_yscale = 1.5; // Altera a escala vertical (1.5x maior)
 		}
 		
 		//Destruindo o dano

@@ -14,4 +14,5 @@ timer_estado = 0;
 
 dist = 120;
 dano = noone;
-ataque = 2;
+ataque = 1;
+posso = true;

@@ -4,9 +4,12 @@ var _pos_y = -32;  // Distância vertical. Ajuste conforme necessário
 
 // Calcula a posição-alvo x com base na direção do obj_ezen
 var _alvo_x;
-if (obj_player.image_xscale == -1) {
+if (obj_player.image_xscale == -1) 
+{
     _alvo_x = obj_player.x - _pos_x;
-} else {
+} 
+else 
+{
     _alvo_x = obj_player.x + _pos_x;
 }
 
@@ -21,6 +24,41 @@ y = lerp(y, _alvo_y, 0.1);
 image_xscale = obj_player.image_xscale;
 
 // Aumenta a opacidade gradativamente até o máximo de 1
-if (image_alpha < 1) {
+if (image_alpha < 1) 
+{
     image_alpha += fade_speed;
+}
+
+
+//Sistema de cura
+// Verifica se o obj_player existe
+if (instance_exists(obj_player)) 
+{
+    var _player = obj_player;
+
+    // Incrementa o temporizador
+    cura_timer += 1;
+
+    // Verifica se o intervalo foi atingido, se o player pode ser curado e se não está no estado "morto"
+    if (cura_timer >= cura_intervalo && _player.vida_atual < _player.vida_max && _player.estado != "morto") 
+	{
+        // Restaura a vida do player
+        _player.vida_atual += 10;
+
+        // Garante que a vida não ultrapasse o máximo
+        if (_player.vida_atual > _player.vida_max) 
+		{
+            _player.vida_atual = _player.vida_max;
+        }
+
+        // Reinicia o temporizador
+        cura_timer = 0;
+
+        // Cria o efeito de cura no centro do player
+        var _efeito = instance_create_layer(_player.x, _player.y, _player.layer, obj_cura);
+
+        // Gradualmente faz o efeito desaparecer
+        _efeito.image_alpha = 1;
+        _efeito.image_speed = 0.05; // Controla a velocidade da animação
+    }
 }

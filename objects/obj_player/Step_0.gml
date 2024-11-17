@@ -5,6 +5,7 @@ var _touch_right = obj_dpad_direita.toque;
 var _touch_left = obj_dpad_esquerda.toque;
 var _touch_atk = obj_botao_atk.toque;
 var _touch_pulo = obj_botao_pulo.toque;
+var _cast = keyboard_check_pressed(ord("U"));
 
 // Entrada do jogador controles
 _right = keyboard_check(ord("D")) || _touch_right;
@@ -12,6 +13,13 @@ _left = keyboard_check(ord("A")) || _touch_left;
 _jump = keyboard_check_pressed(vk_space) || _touch_pulo;
 _attack = keyboard_check_pressed(ord("J")) || _touch_atk;
 _dash = keyboard_check_pressed(ord("K"));
+
+// Verifica se o jogador pode conjurar
+if (_cast && estado != "morto" && estado != "dash" && estado != "conjurando" &&
+energia_atual >= custo_kaise_beam)
+{
+    estado = "conjurando";
+}
 
 // Buff de ataque que diminui ao longo do tempo
 if(ataque_buff > 0) ataque_buff -= 1;
@@ -32,9 +40,24 @@ if (estamina_atual < estamina_max) {
     estamina_recarregando = 0;  // Reseta o temporizador se a estamina está cheia
 }
 
+
+// Verificando a recarga de energia
+if (energia_atual < energia_max) {
+    energia_recarregando++;  // Incrementa o temporizador de recarga a cada Step
+    if (energia_recarregando >= room_speed * 4) {  // A cada 1 segundo (room_speed passos)
+        energia_atual++;           // Recupera 1 ponto de estamina
+        energia_recarregando = 0;  // Reinicia o temporizador
+    }
+} else {
+    energia_recarregando = 0;  // Reseta o temporizador se a estamina está cheia
+}
+
+
 // Lógica do dash (consome estamina)
-if (_dash && dash_cooldown <= 0 && estamina_atual > 0) {
-    if (_right || _left) {
+if (_dash && dash_cooldown <= 0 && estamina_atual > 0 && estado != "morto") 
+{
+    if (_right || _left) 
+	{
         estado = "dash";
         dash_timer = dash_duration;
         dash_cooldown = 30;   // Tempo de recarga para o dash
@@ -43,33 +66,42 @@ if (_dash && dash_cooldown <= 0 && estamina_atual > 0) {
 }
 
 // Aplicando a gravidade
-if (!_chao) {
-    if (velv < max_velv * 2) {
+if (!_chao) 
+{
+    if (velv < max_velv * 2) 
+	{
         velv += GRAVIDADE * massa;
     }
 }
 
 // Código de movimentação (não se aplica durante o dash)
-if (estado != "dash") {
+if (estado != "dash") 
+{
     velh = (_right - _left) * max_velh; // Movimentação horizontal
 }
 
 // Máquina de estados (movimento, pulo, ataque, dash, etc.)
-switch (estado) {
-    case "parado": {
+switch (estado) 
+{
+    case "parado": 
+	{
         sprite_index = spr_player_parado;
 
-        if (_right || _left) {
+        if (_right || _left) 
+		{
             estado = "movendo";
-        } else if (_jump || velv != 0) {
+        } else if (_jump || velv != 0) 
+		{
             estado = "pulando";
             velv = (-max_velv * _jump);
             image_index = 0;
-        } else if (_attack) {
+        } else if (_attack) 
+		{
             estado = "ataque";
             velh = 0;
             image_index = 0;
-        } else if (_dash && dash_cooldown <= 0 && estamina_atual > 0) {
+        } else if (_dash && dash_cooldown <= 0 && estamina_atual > 0) 
+		{
 			if (_right || _left)
 			{
 	            estado = "dash";
@@ -80,21 +112,29 @@ switch (estado) {
         break;
     }
 
-    case "movendo": {
+    case "movendo": 
+	{
         sprite_index = spr_player_correndo;
 
-        if (abs(velh) < .1) {
+        if (abs(velh) < .1) 
+		{
             estado = "parado";
             velh = 0;
-        } else if (_jump || velv != 0) {
+        } 
+		else if (_jump || velv != 0) 
+		{
             estado = "pulando";
             velv = (-max_velv * _jump);
             image_index = 0;
-        } else if (_attack) {
+        } 
+		else if (_attack) 
+		{
             estado = "ataque";
             velh = 0;
             image_index = 0;
-        } else if (_dash && dash_cooldown <= 0 && estamina_atual > 0) {
+        } 
+		else if (_dash && dash_cooldown <= 0 && estamina_atual > 0) 
+		{
             estado = "dash";
             dash_timer = dash_duration;
             dash_cooldown = 30;
@@ -120,18 +160,23 @@ switch (estado) {
         break;
     }
 
-    case "pulando": {
-        if (velv > 0) {
+    case "pulando": 
+	{
+        if (velv > 0) 
+		{
             sprite_index = spr_player_caindo;
-        } else {
+        } else 
+		{
             sprite_index = spr_player_pulo;
-            if (image_index >= image_number - 1) {
+            if (image_index >= image_number - 1) 
+			{
                 image_index = image_number - 1;
             }
         }
 
          // Verifica se o jogador está no chão
-    if (_chao) {
+    if (_chao) 
+	{
         estado = "parado";
         velv = 0;
         pulos_restantes = 1; // Resetar pulos restantes ao tocar o chão
@@ -140,7 +185,8 @@ switch (estado) {
 	else 
 	{
         // Se não estiver no chão, verifique se pode pular novamente
-        if (_jump && pulos_restantes > 0) {
+        if (_jump && pulos_restantes > 0) 
+		{
             // Pulo duplo
             velv = -max_velv; // Ajuste para a velocidade do pulo
             pulos_restantes -= 1; // Reduzir o número de pulos restantes
@@ -151,7 +197,8 @@ switch (estado) {
 	    // Reduzindo o temporizador do rastro
 	    if (rastro_timer <= 0) 
 			{
-				if (velv > 0) {
+				if (velv > 0) 
+				{
 			        var _rastro = instance_create_layer(x, y, layer, obj_rastro_jump);
 			        _rastro.image_alpha = 0.5;
 			        _rastro.image_blend = c_red;
@@ -181,16 +228,20 @@ switch (estado) {
     case "ataque": {
         velh = 0;
 
-        if (combo == 0) {
+        if (combo == 0) 
+		{
             sprite_index = spr_player_ataque1;
-        } else if (combo == 1) {
+        } else if (combo == 1) 
+		{
             sprite_index = spr_player_ataque2;
-        } else if (combo == 2) {
+        } else if (combo == 2) 
+		{
             sprite_index = spr_player_ataque3;
         }
 
         // Criando objeto dano
-        if (image_index >= 2 && dano == noone && posso) {
+        if (image_index >= 2 && dano == noone && posso) 
+		{
             dano = instance_create_layer(x + sprite_width/2.7, y - sprite_height/2.1, layer, obj_dano);
             dano.dano = ataque * ataque_mult;
             dano.pai = id;
@@ -198,16 +249,19 @@ switch (estado) {
         }
 
         // Configurando com buff
-        if (_attack && combo < 2) {
+        if (_attack && combo < 2) 
+		{
             ataque_buff = room_speed;
         }
 
-        if (ataque_buff && combo < 2 && image_index >= image_number - 1) {
+        if (ataque_buff && combo < 2 && image_index >= image_number - 1) 
+		{
             combo++;
             image_index = 0;
             posso = true;
             ataque_mult += .7;
-            if (dano) {
+            if (dano) 
+			{
                 instance_destroy(dano, false);
                 dano = noone;
             }
@@ -215,19 +269,22 @@ switch (estado) {
             ataque_buff = 0;
         }
 
-        if (image_index >= image_number - 1) {
+        if (image_index >= image_number - 1) 
+		{
             estado = "parado";
             velv = 0;
             combo = 0;
             posso = true;
             ataque_mult = 1;
-            if (dano) {
+            if (dano) 
+			{
                 instance_destroy(dano, false);
                 dano = noone;
             }
         }
 
-        if (_dash && dash_cooldown <= 0 && estamina_atual > 0) {
+        if (_dash && dash_cooldown <= 0 && estamina_atual > 0) 
+		{
 			if (_right || _left)
 			{
 	            estado = "dash";
@@ -243,18 +300,23 @@ switch (estado) {
         break;
     }
 
-    case "dash": {
+    case "dash": 
+	{
         dash_timer--; // Reduzindo o tempo do dash
 
         // Definindo a direção e velocidade do dash
-        if (_right) {
+        if (_right) 
+		{
             velh = dash_speed;
-        } else if (_left) {
+        } 
+		else if (_left) 
+		{
             velh = -dash_speed;
         }
 
         // Criando o rastro do dash
-        if (dash_timer % 2 == 0) {
+        if (dash_timer % 2 == 0) 
+		{
             var _rastro = instance_create_layer(x, y, layer, obj_rastro_dash);
             _rastro.image_alpha = 0.9;
             _rastro.image_blend = c_red; // Cor do rastro
@@ -263,7 +325,8 @@ switch (estado) {
         }
 
         // Fim do dash
-        if (dash_timer <= 0) {
+        if (dash_timer <= 0) 
+		{
             estado = "parado";
             velh = 0;
         }
@@ -320,6 +383,65 @@ switch (estado) {
 		}
 		break;
 	}
+	
+	case "conjurando":
+{
+    // Verifica se o jogador está no estado "parado" e em contato com o chão
+    if (_chao) 
+    {
+        velh = 0; // Imobiliza o jogador enquanto está conjurando
+
+        // Configura o sprite de conjuração
+        if (sprite_index != spr_player_cast) 
+        {
+            sprite_index = spr_player_cast; // Define o sprite de conjuração
+            image_index = 0; // Inicia a animação do início
+        }
+
+        // Criando o obj_skill_kaiser_beam no início da conjuração
+        if (image_index == 0 && !instance_exists(obj_skill_kaiser_beam)) 
+        {
+            var _beam = instance_create_layer(x + sprite_width / 0.9, y - sprite_height / 1.5, "Inst_Skills", obj_skill_kaiser_beam);
+            _beam.image_xscale = image_xscale; // A escala segue a direção do player
+            _beam.image_xscale = 0.10;
+            _beam.image_yscale = 0.75;
+        }
+
+        // Criando o obj_dano com base nos frames do obj_skill_kaiser_beam
+        if (obj_skill_kaiser_beam.image_index >= 29 && obj_skill_kaiser_beam.image_index < 43 && dano == noone) 
+        {
+            // Criar o obj_dano com a mesma posição e tamanho do obj_skill_kaiser_beam
+            dano = instance_create_layer(x + sprite_width / 0.089, y - sprite_height / 1.1, layer, obj_dano);
+            dano.dano = ataque; // Define o dano com base no ataque do player
+            dano.pai = id; // Define o dono do dano como o player
+
+            dano.image_xscale = 11; // Copia a escala horizontal do beam
+            dano.image_yscale = 1.8; // Copia a escala vertical do beam
+        }
+
+        // Destruindo o obj_dano no frame correto (entre 29 e 43)
+        if (dano != noone && obj_skill_kaiser_beam.image_index >= 43) 
+        {
+            instance_destroy(dano);
+            dano = noone;
+        }
+
+        // Finalizando a conjuração
+        if (obj_skill_kaiser_beam.image_index >= obj_skill_kaiser_beam.image_number - 1) 
+        {
+            estado = "parado"; // Retorna ao estado normal após a conjuração
+			energia_atual -= custo_kaise_beam;
+        }
+    }
+    else
+    {
+        // Caso não tenha energia suficiente, retorna ao estado "parado" sem fazer a conjuração
+        estado = "parado"; 
+    }
+
+    break;
+}
+
 	
 	//Estado padrão PARADO
 	default:
