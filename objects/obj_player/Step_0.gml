@@ -4,11 +4,12 @@ var _chao = place_meeting(x, y + 1, obj_block);
 var _touch_right = obj_dpad_direita.toque;
 var _touch_left = obj_dpad_esquerda.toque;
 var _touch_atk = obj_botao_atk.toque;
+var _touch_pulo = obj_botao_pulo.toque;
 
 // Entrada do jogador controles
 _right = keyboard_check(ord("D")) || _touch_right;
 _left = keyboard_check(ord("A")) || _touch_left;
-_jump = keyboard_check_pressed(vk_space);
+_jump = keyboard_check_pressed(vk_space) || _touch_pulo;
 _attack = keyboard_check_pressed(ord("J")) || _touch_atk;
 _dash = keyboard_check_pressed(ord("K"));
 
@@ -269,6 +270,56 @@ switch (estado) {
         break;
 		
     }
+	
+	case "hit":
+	{
+		if (sprite_index != spr_player_machucado)
+		{
+			sprite_index = spr_player_machucado;
+			image_index = 0;
+		}
+		
+		//ficando parado
+		velh = 0;
+		
+		//Saindo do estado
+		
+		//checando se deve morrer
+		if (vida_atual > 0)
+		{
+			if (image_index >= image_number - 1)
+			{
+				estado = "parado";
+			}
+		}
+		else
+		{
+			//show_message("nhelson")
+			if (image_index >= image_number -1)
+			{
+				estado = "morto";
+			}
+		}
+		
+		
+		break;
+	}
+	
+	case "morto":
+	{
+		velh = 0;
+		if (sprite_index != spr_player_morto)
+		{
+			image_index = 0;
+			sprite_index = spr_player_morto;
+		}
+		
+		if (image_index >= image_number -1)
+		{
+			image_index = image_number -1;
+		}
+		break;
+	}
 	
 	//Estado padrão PARADO
 	default:

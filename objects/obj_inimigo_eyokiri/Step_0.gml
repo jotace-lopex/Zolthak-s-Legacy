@@ -10,10 +10,10 @@ if (!_chao)
 	
 }
 
-if (mouse_check_button_pressed(mb_right))
-{
-	estado = "attack";
-}
+//if (mouse_check_button_pressed(mb_right))
+//{
+//	estado = "attack";
+//}
 
 
 switch(estado)
@@ -101,6 +101,8 @@ switch(estado)
 		if (sprite_index != spr_inimigo_eyokiri_atq)
 		{
 			image_index = 0;
+			posso = true;
+			dano = noone;
 		}
 		sprite_index = spr_inimigo_eyokiri_atq;
 		
@@ -110,15 +112,16 @@ switch(estado)
 		}
 		
 		//criando o dano
-		if (image_index >= 1 && dano == noone && image_index < 2)
+		if (image_index >= 4 && dano == noone && image_index < 6 && posso)
 		{
 			dano = instance_create_layer(x + sprite_width/2, y - sprite_height/2, layer, obj_dano);
 			dano.dano = ataque;
 			dano.pai = id;
+			posso = false;
 		}
 		
 		//Destruindo o dano
-		if (dano != noone && image_index >= 3)
+		if (dano != noone && image_index >= 6)
 		{
 			instance_destroy(dano);
 			dano = noone;
@@ -131,6 +134,7 @@ switch(estado)
 	
 	case"morto":
 	{
+		velh = 0;
 		if (sprite_index != spr_inimigo_eyokiri_morte)
 		{
 			//Iniciando o que for preciso para esse estado

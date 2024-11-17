@@ -10,10 +10,10 @@ if (!_chao)
 	
 }
 
-if (mouse_check_button_pressed(mb_right))
-{
-	estado = "attack";
-}
+//if (mouse_check_button_pressed(mb_right))
+//{
+//	estado = "attack";
+//}
 
 
 switch(estado)
@@ -131,6 +131,7 @@ switch(estado)
 	
 	case"morto":
 	{
+		velh = 0;
 		if (sprite_index != spr_inimigo_krolium_morte)
 		{
 			//Iniciando o que for preciso para esse estado

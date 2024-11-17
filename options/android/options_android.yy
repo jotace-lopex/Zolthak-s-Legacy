@@ -48,7 +48,7 @@
   "option_android_orient_landscape_flipped":true,
   "option_android_orient_portrait":true,
   "option_android_orient_portrait_flipped":true,
-  "option_android_package_company":"company",
+  "option_android_package_company":"arkansoft",
   "option_android_package_domain":"com",
   "option_android_package_product":"game",
   "option_android_permission_bluetooth":true,
