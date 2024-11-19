@@ -15,7 +15,7 @@ _attack = keyboard_check_pressed(ord("J")) || _touch_atk;
 _dash = keyboard_check_pressed(ord("K"));
 
 // Verifica se o jogador pode conjurar
-if (_cast && estado != "morto" && estado != "dash" && estado != "conjurando" &&
+if (_cast && estado != "morto" && estado != "dash" && estado != "pulando" && estado != "conjurando" &&
 energia_atual >= custo_kaise_beam)
 {
     estado = "conjurando";
