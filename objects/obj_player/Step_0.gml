@@ -54,7 +54,7 @@ if (energia_atual < energia_max) {
 
 
 // Lógica do dash (consome estamina)
-if (_dash && dash_cooldown <= 0 && estamina_atual > 0 && estado != "morto") 
+if (_dash && dash_cooldown <= 0 && estamina_atual > 0 && estado != "morto" && estado != "conjurando") 
 {
     if (_right || _left) 
 	{
@@ -403,24 +403,24 @@ switch (estado)
         {
             var _beam = instance_create_layer(x + sprite_width / 0.9, y - sprite_height / 1.5, "Inst_Skills", obj_skill_kaiser_beam);
             _beam.image_xscale = image_xscale; // A escala segue a direção do player
-            _beam.image_xscale = 0.10;
-            _beam.image_yscale = 0.75;
+            _beam.image_xscale = 1;
+            _beam.image_yscale = 1;
         }
 
         // Criando o obj_dano com base nos frames do obj_skill_kaiser_beam
-        if (obj_skill_kaiser_beam.image_index >= 29 && obj_skill_kaiser_beam.image_index < 43 && dano == noone) 
+        if (obj_skill_kaiser_beam.image_index >= 29 && obj_skill_kaiser_beam.image_index < 79 && dano == noone) 
         {
             // Criar o obj_dano com a mesma posição e tamanho do obj_skill_kaiser_beam
-            dano = instance_create_layer(x + sprite_width / 0.089, y - sprite_height / 1.1, layer, obj_dano);
+            dano = instance_create_layer(x + sprite_width / 0.089, y - sprite_height / 1.4, layer, obj_dano);
             dano.dano = ataque; // Define o dano com base no ataque do player
             dano.pai = id; // Define o dono do dano como o player
 
             dano.image_xscale = 11; // Copia a escala horizontal do beam
-            dano.image_yscale = 1.8; // Copia a escala vertical do beam
+            dano.image_yscale = 1.4; // Copia a escala vertical do beam
         }
 
         // Destruindo o obj_dano no frame correto (entre 29 e 43)
-        if (dano != noone && obj_skill_kaiser_beam.image_index >= 43) 
+        if (dano != noone && obj_skill_kaiser_beam.image_index >= 79) 
         {
             instance_destroy(dano);
             dano = noone;
