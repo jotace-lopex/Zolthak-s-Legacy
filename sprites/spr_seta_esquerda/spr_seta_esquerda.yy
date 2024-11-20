@@ -19,7 +19,7 @@
   "height":70,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"c5355e84-a411-47cb-8065-6bbdd2f0722c","blendMode":0,"displayName":"default","isLocked":false,"name":"c5355e84-a411-47cb-8065-6bbdd2f0722c","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"c5355e84-a411-47cb-8065-6bbdd2f0722c","blendMode":0,"displayName":"default","isLocked":false,"name":"c5355e84-a411-47cb-8065-6bbdd2f0722c","opacity":50.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"spr_seta_esquerda",
   "nineSlice":null,

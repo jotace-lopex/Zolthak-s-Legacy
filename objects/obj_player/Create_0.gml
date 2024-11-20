@@ -9,7 +9,7 @@ _cam.alvo = id;
 event_inherited();
 
 // Configurações de vida do jogador
-vida_max = 30;
+vida_max = 20;
 vida_atual = vida_max;
 
 //Configuração de estamina

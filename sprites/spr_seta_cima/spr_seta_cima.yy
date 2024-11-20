@@ -19,7 +19,7 @@
   "height":70,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"dff0a904-d6a3-465a-bc39-3ceccc0ee81e","blendMode":0,"displayName":"default","isLocked":false,"name":"dff0a904-d6a3-465a-bc39-3ceccc0ee81e","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"dff0a904-d6a3-465a-bc39-3ceccc0ee81e","blendMode":0,"displayName":"default","isLocked":false,"name":"dff0a904-d6a3-465a-bc39-3ceccc0ee81e","opacity":50.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"spr_seta_cima",
   "nineSlice":null,

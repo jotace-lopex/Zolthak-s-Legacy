@@ -6,7 +6,7 @@ var _chao = place_meeting(x, y + 1, obj_block);
 
 if (!_chao)
 {
-	velv += GRAVIDADE * massa;
+	velv += GRAVIDADE * massa * global.vel_mult;
 	
 }
 
@@ -54,7 +54,7 @@ switch(estado)
 		if (sprite_index != spr_inimigo_eyokiri_andando)
 		{
 			image_index = 0;
-			velh = choose (1, -1);
+			velh = choose (1, -1) * global.vel_mult;
 		}
 		sprite_index = spr_inimigo_eyokiri_andando
 		

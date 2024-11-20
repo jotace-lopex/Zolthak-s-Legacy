@@ -5,4 +5,4 @@
 image_alpha = 1;
 
 // Configura a velocidade de desaparecimento
-desaparecer_velocidade = 0.02;
+desaparecer_velocidade = 0.007;

@@ -47,8 +47,3 @@ if (room == rm_configuracao || room == rm_creditos) {
         }
     }
 }
-
-
-
-
-

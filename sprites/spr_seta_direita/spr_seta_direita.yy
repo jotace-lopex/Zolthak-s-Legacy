@@ -19,7 +19,7 @@
   "height":70,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"980aa882-3f41-42b0-bdb2-45a87de9bcf0","blendMode":0,"displayName":"default","isLocked":false,"name":"980aa882-3f41-42b0-bdb2-45a87de9bcf0","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"980aa882-3f41-42b0-bdb2-45a87de9bcf0","blendMode":0,"displayName":"default","isLocked":false,"name":"980aa882-3f41-42b0-bdb2-45a87de9bcf0","opacity":50.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"spr_seta_direita",
   "nineSlice":null,

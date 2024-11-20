@@ -70,14 +70,14 @@ if (!_chao)
 {
     if (velv < max_velv * 2) 
 	{
-        velv += GRAVIDADE * massa;
+        velv += GRAVIDADE * massa * global.vel_mult;
     }
 }
 
 // Código de movimentação (não se aplica durante o dash)
 if (estado != "dash") 
 {
-    velh = (_right - _left) * max_velh; // Movimentação horizontal
+    velh = (_right - _left) * max_velh * global.vel_mult; // Movimentação horizontal
 }
 
 // Máquina de estados (movimento, pulo, ataque, dash, etc.)
@@ -370,6 +370,15 @@ switch (estado)
 	
 	case "morto":
 	{
+		//Chegando se o objeto existe
+		if (instance_exists(obj_game_controller))
+		{
+			with(obj_game_controller)
+			{
+				game_over = true;
+			}
+		}
+		
 		velh = 0;
 		if (sprite_index != spr_player_morto)
 		{

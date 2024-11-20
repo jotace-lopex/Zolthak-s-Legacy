@@ -19,7 +19,7 @@
   "height":74,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"1530633b-35f4-468c-9a04-e5352ebf154e","blendMode":0,"displayName":"default","isLocked":false,"name":"1530633b-35f4-468c-9a04-e5352ebf154e","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"1530633b-35f4-468c-9a04-e5352ebf154e","blendMode":0,"displayName":"default","isLocked":false,"name":"1530633b-35f4-468c-9a04-e5352ebf154e","opacity":70.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"spr_botao_pulo",
   "nineSlice":null,

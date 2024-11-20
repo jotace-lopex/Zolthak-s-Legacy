@@ -1,5 +1,3 @@
-/// @description Inserir descrição aqui
-// Você pode escrever seu código neste editor
 
 
 // criando as estruturas do meu menu
@@ -47,4 +45,3 @@ atual = 0;
 
 // margem do menu
 margem = 0;
-
