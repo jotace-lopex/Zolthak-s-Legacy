@@ -10,7 +10,7 @@
   "overriddenProperties":[],
   "parent":{
     "name":"Gerenciadores",
-    "path":"folders/Objetos/Servos/Gerenciadores.yy",
+    "path":"folders/Objetos/Gerenciadores.yy",
   },
   "parentObjectId":null,
   "persistent":false,
