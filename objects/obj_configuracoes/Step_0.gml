@@ -32,7 +32,7 @@ if (obj_botao_confirma.toque)
 	    global.music_on = !global.music_on;
 	    if (!global.music_on) {
 	        if (global.room_music != noone) {
-	            audio_stop_sound(global.room_music);
+	            audio_stop_sound(room_music);
 	        }
 	    } else {
 	        // Restart the music based on the current room

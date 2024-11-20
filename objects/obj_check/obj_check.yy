@@ -8,8 +8,8 @@
   "name":"obj_check",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objetos",
-    "path":"folders/Objetos.yy",
+    "name":"Gerenciadores",
+    "path":"folders/Objetos/Servos/Gerenciadores.yy",
   },
   "parentObjectId":null,
   "persistent":false,

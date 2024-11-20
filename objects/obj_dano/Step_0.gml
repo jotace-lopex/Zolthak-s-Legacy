@@ -1,52 +1,56 @@
-/// @description Inserir descrição aqui
-// Você pode escrever seu código neste editor
+/// @description Aplica dano às entidades em colisão
 var _outro;
 var _outro_lista = ds_list_create();
-var _quantidade = instance_place_list(x, y, obj_entidade, _outro_lista, 0);
+var _aplicar_dano = ds_list_create();
 
-//adicionando todo mund o que eu toquei na lista de aplicar dano
-for (var _i = 0; _i < _quantidade; _i++)
-{
-	//checando o atual
-	var _atual = _outro_lista[| _i];
-	
-	//show_message(object_get_name(_atual.object_index));
-	
-	//checando se a colisão não é com filho do proprio pai
-	if (object_get_parent(_atual.object_index) != object_get_parent(pai.object_index))
-	{
-		//isso só vai rodar se eu puder dar dano no coisinho
-		
-		//checar se eu realmente posso dar dano
-		
-		//checar se o atual já esta na lista
-		var _pos = ds_list_find_index(aplicar_dano, _atual);
-		if (_pos == -1)
-		{
-			//o atual ainda não esta na minha lista de dano
-			//adiciono o atual a lista de dano
-			ds_list_add(aplicar_dano, _atual);
-		}
-	}
+try {
+    // Obter lista de entidades em colisão
+    var _quantidade = instance_place_list(x, y, obj_entidade, _outro_lista, false);
+    
+    // Adicionar entidades elegíveis à lista de dano
+    for (var _i = 0; _i < _quantidade; _i++) {
+        var _atual = _outro_lista[| _i];
+
+        // Evitar colisões com entidades da mesma hierarquia
+        if (object_get_parent(_atual.object_index) != object_get_parent(pai.object_index)) {
+            // Verificar se ainda não está na lista
+            if (ds_list_find_index(_aplicar_dano, _atual) == -1) {
+                ds_list_add(_aplicar_dano, _atual);
+            }
+        }
+    }
+
+    // Aplicar dano às entidades
+    for (var _i = 0; _i < ds_list_size(_aplicar_dano); _i++) {
+        _outro = _aplicar_dano[| _i];
+        if (variable_instance_exists(_outro, "vida_atual") && _outro.vida_atual > 0) {
+            _outro.estado = "hit";
+            _outro.image_index = 0;
+            _outro.vida_atual -= dano;
+
+            // Screenshake para inimigos
+            if (object_is_ancestor(_outro.object_index, obj_inimigo_pai)) {
+                screenshake(2);
+            }
+        }
+    }
+    
+    // Controlar destruição do objeto
+    if (morrer || _quantidade > 0) {
+        instance_destroy();
+    } else {
+        y = pai.y; // Sincronizar posição vertical
+    }
+    
+} finally {
+    // Destruir listas auxiliares
+    ds_list_destroy(_aplicar_dano);
+    ds_list_destroy(_outro_lista);
 }
 
-//aplicando o dano
-var _tam = ds_list_size(aplicar_dano);
-for (var _i = 0; _i < _tam; _i++)
-{
-	_outro = aplicar_dano[| _i].id;
-	if (_outro.vida_atual > 0) 
-	{
-	    _outro.estado = "hit";
-	    _outro.image_index = 0;
-	    _outro.vida_atual -= dano;
-	}
-}
 
 
-ds_list_destroy(aplicar_dano);
-ds_list_destroy(_outro_lista);
-instance_destroy();
+
 /*/
 if (_outro) 
 {

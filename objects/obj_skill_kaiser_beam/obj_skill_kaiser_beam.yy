@@ -8,8 +8,8 @@
   "name":"obj_skill_kaiser_beam",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objetos",
-    "path":"folders/Objetos.yy",
+    "name":"Skills",
+    "path":"folders/Objetos/Skills.yy",
   },
   "parentObjectId":{
     "name":"obj_entidade",

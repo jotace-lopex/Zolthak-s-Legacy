@@ -10,8 +10,8 @@
   "name":"obj_game_controller",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objetos",
-    "path":"folders/Objetos.yy",
+    "name":"Gerenciadores",
+    "path":"folders/Objetos/Servos/Gerenciadores.yy",
   },
   "parentObjectId":null,
   "persistent":true,

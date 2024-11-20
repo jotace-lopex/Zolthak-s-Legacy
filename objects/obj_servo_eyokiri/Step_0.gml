@@ -54,7 +54,7 @@ if (instance_exists(obj_player))
         // Reinicia o temporizador
         cura_timer = 0;
 		// Cria o efeito de cura no centro do player
-	    var _efeito = instance_create_layer(_player.x, _player.y, "Particulas", obj_cura);
+	    var _efeito = instance_create_layer(_player.x, _player.y, "Inst_Buffs", obj_cura);
 
 	    // Gradualmente faz o efeito desaparecer
 	    _efeito.image_alpha = 1;

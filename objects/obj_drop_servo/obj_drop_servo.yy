@@ -10,8 +10,8 @@
   "name":"obj_drop_servo",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objetos",
-    "path":"folders/Objetos.yy",
+    "name":"Itens",
+    "path":"folders/Objetos/Itens.yy",
   },
   "parentObjectId":{
     "name":"obj_entidade",
