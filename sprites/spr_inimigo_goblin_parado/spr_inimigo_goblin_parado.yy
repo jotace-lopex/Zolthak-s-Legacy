@@ -62,7 +62,7 @@
     },
     "name":"spr_inimigo_goblin_parado",
     "playback":1,
-    "playbackSpeed":9.0,
+    "playbackSpeed":12.0,
     "playbackSpeedType":0,
     "resourceType":"GMSequence",
     "resourceVersion":"2.0",

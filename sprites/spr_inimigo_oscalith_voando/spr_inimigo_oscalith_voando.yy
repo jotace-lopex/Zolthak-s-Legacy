@@ -1,6 +1,6 @@
 {
   "$GMSprite":"",
-  "%Name":"spr_inimigo_oscalith_parado",
+  "%Name":"spr_inimigo_oscalith_voando",
   "bboxMode":0,
   "bbox_bottom":32,
   "bbox_left":0,
@@ -28,7 +28,7 @@
   "layers":[
     {"$GMImageLayer":"","%Name":"c11bc318-6a5b-45c6-8807-9f70734edfae","blendMode":0,"displayName":"default","isLocked":false,"name":"c11bc318-6a5b-45c6-8807-9f70734edfae","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
-  "name":"spr_inimigo_oscalith_parado",
+  "name":"spr_inimigo_oscalith_voando",
   "nineSlice":null,
   "origin":7,
   "parent":{
@@ -40,7 +40,7 @@
   "resourceVersion":"2.0",
   "sequence":{
     "$GMSequence":"",
-    "%Name":"spr_inimigo_oscalith_parado",
+    "%Name":"spr_inimigo_oscalith_voando",
     "autoRecord":true,
     "backdropHeight":768,
     "backdropImageOpacity":0.5,
@@ -64,7 +64,7 @@
       "resourceType":"KeyframeStore<MomentsEventKeyframe>",
       "resourceVersion":"2.0",
     },
-    "name":"spr_inimigo_oscalith_parado",
+    "name":"spr_inimigo_oscalith_voando",
     "playback":1,
     "playbackSpeed":9.0,
     "playbackSpeedType":0,
@@ -76,28 +76,28 @@
     "tracks":[
       {"$GMSpriteFramesTrack":"","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"$KeyframeStore<SpriteFrameKeyframe>":"","Keyframes":[
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"6a6c3cec-688e-43a2-a0d3-2e1efcbe68b8","path":"sprites/spr_inimigo_oscalith_parado/spr_inimigo_oscalith_parado.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"6a6c3cec-688e-43a2-a0d3-2e1efcbe68b8","path":"sprites/spr_inimigo_oscalith_voando/spr_inimigo_oscalith_voando.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
               },"Disabled":false,"id":"ef48b4a3-89f1-4ba8-b3da-5c6f94bfbfb0","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"7019c2db-1ec7-45f4-a89d-323be9611142","path":"sprites/spr_inimigo_oscalith_parado/spr_inimigo_oscalith_parado.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"7019c2db-1ec7-45f4-a89d-323be9611142","path":"sprites/spr_inimigo_oscalith_voando/spr_inimigo_oscalith_voando.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
               },"Disabled":false,"id":"2652b673-385c-49d0-aba1-9932f551aaab","IsCreationKey":false,"Key":1.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"22e37673-c292-4939-ae2e-05d01e533bb5","path":"sprites/spr_inimigo_oscalith_parado/spr_inimigo_oscalith_parado.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"22e37673-c292-4939-ae2e-05d01e533bb5","path":"sprites/spr_inimigo_oscalith_voando/spr_inimigo_oscalith_voando.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
               },"Disabled":false,"id":"e74e588a-7b11-40ee-acd4-01caa63218de","IsCreationKey":false,"Key":2.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"caa45408-f57e-4b11-a4ff-99c798425cd3","path":"sprites/spr_inimigo_oscalith_parado/spr_inimigo_oscalith_parado.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"caa45408-f57e-4b11-a4ff-99c798425cd3","path":"sprites/spr_inimigo_oscalith_voando/spr_inimigo_oscalith_voando.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
               },"Disabled":false,"id":"6c7e7332-7d60-4900-b3a6-c9e32a100794","IsCreationKey":false,"Key":3.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"307437d1-341b-4ee1-ac8c-79c11626db83","path":"sprites/spr_inimigo_oscalith_parado/spr_inimigo_oscalith_parado.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"307437d1-341b-4ee1-ac8c-79c11626db83","path":"sprites/spr_inimigo_oscalith_voando/spr_inimigo_oscalith_voando.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
               },"Disabled":false,"id":"b074f298-6936-49ac-a50e-1551e38e5749","IsCreationKey":false,"Key":4.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"97ee4000-2c22-42a2-b975-c0de70ab1374","path":"sprites/spr_inimigo_oscalith_parado/spr_inimigo_oscalith_parado.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"97ee4000-2c22-42a2-b975-c0de70ab1374","path":"sprites/spr_inimigo_oscalith_voando/spr_inimigo_oscalith_voando.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
               },"Disabled":false,"id":"63f2be60-1cb0-4e78-bd3a-acb4f69af870","IsCreationKey":false,"Key":5.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"9df2b679-0bb4-435a-9067-1af55e4b3147","path":"sprites/spr_inimigo_oscalith_parado/spr_inimigo_oscalith_parado.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"9df2b679-0bb4-435a-9067-1af55e4b3147","path":"sprites/spr_inimigo_oscalith_voando/spr_inimigo_oscalith_voando.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
               },"Disabled":false,"id":"86f2fd6e-a66e-41d7-a0cd-a1647ad106a6","IsCreationKey":false,"Key":6.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"436bf6fe-eb8b-4cd4-b281-c96f8ee9b680","path":"sprites/spr_inimigo_oscalith_parado/spr_inimigo_oscalith_parado.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"436bf6fe-eb8b-4cd4-b281-c96f8ee9b680","path":"sprites/spr_inimigo_oscalith_voando/spr_inimigo_oscalith_voando.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
               },"Disabled":false,"id":"4da58779-9926-45af-8153-17209f2307ad","IsCreationKey":false,"Key":7.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],

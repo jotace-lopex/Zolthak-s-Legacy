@@ -37,6 +37,9 @@
     "name":"spr_inimigo_bukito_parado",
     "path":"sprites/spr_inimigo_bukito_parado/spr_inimigo_bukito_parado.yy",
   },
-  "spriteMaskId":null,
+  "spriteMaskId":{
+    "name":"spr_inimigo_bukito_colisao",
+    "path":"sprites/spr_inimigo_bukito_colisao/spr_inimigo_bukito_colisao.yy",
+  },
   "visible":true,
 }

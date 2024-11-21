@@ -38,5 +38,5 @@
     "path":"sprites/spr_sensor/spr_sensor.yy",
   },
   "spriteMaskId":null,
-  "visible":true,
+  "visible":false,
 }

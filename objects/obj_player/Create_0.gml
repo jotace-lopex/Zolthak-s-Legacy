@@ -44,6 +44,11 @@ dash_duration = 10;    // Duração do dash em frames
 dash_timer = 0;        // Temporizador para o dash
 dash_cooldown = 0;     // Tempo de recarga para o dash
 
+//invencivel
+invencivel = false;
+invencivel_timer = room_speed * 3;
+tempo_invencivel = invencivel_timer;
+
 //rastro movendo
 rastro_timer = 0;         // Temporizador para controlar a criação de rastro
 rastro_duracao = 15;      // Duração do rastro em steps (ajuste conforme desejado)

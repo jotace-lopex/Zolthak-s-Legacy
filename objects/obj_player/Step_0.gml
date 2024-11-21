@@ -3,6 +3,18 @@
 //checando se o objeto transição existe
 if (instance_exists(obj_transicao)) exit;
 
+//controlando invencibilidade
+if (invencivel && tempo_invencivel > 0)
+{
+	tempo_invencivel--;
+	image_alpha = max(sin(get_timer()/100000), 0.2);
+}
+else
+{
+	invencivel = false;
+	image_alpha = 1;
+}
+
 var _right, _left, _jump, _attack, _dash;
 var _chao = place_meeting(x, y + 1, obj_block);
 var _touch_right = obj_dpad_direita.toque;
@@ -286,6 +298,9 @@ switch (estado)
 			{
 				sprite_index = spr_player_ataque_ar_down_end;
 				image_index = 0;
+				
+				//criando o screenshake direcional
+				screenshake(10, true, 270);
 			}
 			else
 			{
@@ -473,6 +488,10 @@ switch (estado)
 	        sprite_index = spr_player_machucado;
 	        image_index = 0;
 	        screenshake(4);
+			
+			//deixando o player invencivel
+			invencivel = true;
+			tempo_invencivel = invencivel_timer;
 	    }
 
 	    ataque_down = false;
@@ -610,3 +629,5 @@ switch (estado)
 	}
 	
 }
+
+show_debug_message(tempo_invencivel);

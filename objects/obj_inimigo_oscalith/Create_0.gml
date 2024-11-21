@@ -3,6 +3,7 @@
 
 // Inherit the parent event
 event_inherited();
+
 vida_max = 5;
 vida_atual = vida_max;
 
@@ -15,3 +16,18 @@ dist = 70;
 dano = noone;
 ataque = 2;
 posso = true;
+
+velocidade = 3.4;  // Velocidade padrão para seguir o jogador e atacar
+velocidade_patrulha = 1;  // Velocidade reduzida para patrulha
+distancia_visao = 140;  // Distância de visão do inimigo
+distancia_ataque = 30;  // Distância mínima para o ataque
+tempo_patrol_max = 130;  // Tempo máximo para mudar a direção na patrulha
+tempo_patrol = 0;  // Timer da patrulha
+sentido_patrulha = 1;  // Sentido inicial da patrulha (1 = direita, -1 = esquerda)
+inicial_x = x;  // Posição inicial X
+inicial_y = y;  // Posição inicial Y
+atacando = false;  // Estado de ataque
+tempo_ataque = 0;  // Timer do ataque
+estado = "patrulha";  // Estado inicial
+tempo_recuperacao = 0; // Timer de recuperação
+tempo_recuperacao_max = 120; // Duração da recuperação em frames (2 segundos se image_speed = 30 FPS)

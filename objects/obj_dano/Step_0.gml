@@ -10,6 +10,12 @@ try {
     // Adicionar entidades elegíveis à lista de dano
     for (var _i = 0; _i < _quantidade; _i++) {
         var _atual = _outro_lista[| _i];
+		
+		///checando se o atual esta invencivel
+		if (_atual.invencivel)
+		{
+			continue;
+		}
 
         // Evitar colisões com entidades da mesma hierarquia
         if (object_get_parent(_atual.object_index) != object_get_parent(pai.object_index)) {

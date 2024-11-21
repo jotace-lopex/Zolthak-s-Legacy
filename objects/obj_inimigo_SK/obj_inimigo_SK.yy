@@ -4,6 +4,7 @@
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
   "name":"obj_inimigo_sk",
@@ -32,11 +33,14 @@
   "properties":[],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
-  "solid":false,
+  "solid":true,
   "spriteId":{
-    "name":"spr_inimigo_SK_parado",
-    "path":"sprites/spr_inimigo_SK_parado/spr_inimigo_SK_parado.yy",
+    "name":"spr_inimigo_sk_parado",
+    "path":"sprites/spr_inimigo_sk_parado/spr_inimigo_sk_parado.yy",
   },
-  "spriteMaskId":null,
+  "spriteMaskId":{
+    "name":"spr_inimigo_sk_colisao",
+    "path":"sprites/spr_inimigo_sk_colisao/spr_inimigo_sk_colisao.yy",
+  },
   "visible":true,
 }
