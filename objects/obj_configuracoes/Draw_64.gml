@@ -1,3 +1,4 @@
+// Configuração inicial
 draw_set_font(fnt_fnt_menu);
 
 var dist = 50;
@@ -6,20 +7,29 @@ var gui_altura = display_get_gui_height();
 var x1 = gui_largura / 2;
 var y1 = gui_altura / 2;
 
-opcoes[0] = "Efeitos Sonoros: " + (global.sound_effects_on ? "Ligado" : "Desligado");
-opcoes[1] = "Musica: " + (global.music_on ? "Ligada" : "Desligada");
-
-for(var i = 0; i < op_max; i++){
+// Desenho das opções
+for (var i = 0; i < op_max; i++) {
     draw_set_halign(fa_center);
     draw_set_valign(fa_center);
-    
-    if(index == i){
-        draw_set_color(c_yellow);
+
+    // Configurar a cor da seleção
+    var cor_selecao = (index == i) ? c_yellow : c_white;
+
+    // Substituir texto por sprites nas opções "Efeitos Sonoros" e "Música"
+    if (i == 0 || i == 1) {
+        // Escolher o sprite correto
+        var sprite_usar = (i == 0) 
+                          ? (global.sound_effects_on ? spr_efeitos_ligado : spr_efeitos_desligado) 
+                          : (global.music_on ? spr_musica_ligada : spr_musica_desligada);
+
+        // Desenhar o sprite com cor da seleção
+        draw_sprite_ext(sprite_usar, 0, x1, y1 + (100 * i), 1, 1, 0, cor_selecao, 1);
     } else {
-        draw_set_color(c_white);
+        // Desenhar o texto "Voltar" com a cor da seleção
+        draw_set_color(cor_selecao);
+        draw_text(x1, y1 + (150 * i), "Voltar");
     }
-    
-    draw_text(x1, y1 + (100 * i), opcoes[i]);
 }
 
-draw_set_font(-1); 
+// Restaurar configurações de fonte
+draw_set_font(-1);

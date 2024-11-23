@@ -2,6 +2,12 @@
 // Você pode escrever seu código neste editor
 //KROLIUM
 
+if (global.is_paused) {
+    // Impede a execução do restante do código, ou apenas a parte que você quer pausar
+    exit;  // Faz o código da lógica não ser executado enquanto estiver pausado
+}
+
+
 var _chao = place_meeting(x, y + 1, obj_block);
 
 if (!_chao)

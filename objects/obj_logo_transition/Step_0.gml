@@ -23,7 +23,7 @@ switch(state) {
         alpha -= fade_out_speed;
         if (alpha <= 0) {
             alpha = 0;
-            room_goto(rm_menu); // transição para o menu do jogo
+            room_goto(rm_zolthak); // transição para o menu do jogo
         }
         break;
 }

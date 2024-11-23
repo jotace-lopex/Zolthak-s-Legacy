@@ -11,8 +11,8 @@
   "name":"obj_inimigo_krolium",
   "overriddenProperties":[],
   "parent":{
-    "name":"inimigos",
-    "path":"folders/Objetos/inimigos.yy",
+    "name":"Chefes",
+    "path":"folders/Objetos/inimigos/Chefes.yy",
   },
   "parentObjectId":{
     "name":"obj_inimigo_pai",

@@ -50,24 +50,51 @@ switch(estado)
 	
 	case "walk":
 	{
-		timer_estado++;
-		if (sprite_index != spr_inimigo_bukito_andando)
-		{
-			image_index = 0;
-			velh = choose (1, -1);
-		}
-		sprite_index = spr_inimigo_bukito_andando
-		
-		//condição de saída do estado
-		if (irandom(timer_estado) > 300)
-		{
-			estado = choose("parado", "walk", "walk");
-			timer_estado = 0;
-		}
-		scr_ataca_player_melee(obj_player, dist, xscale);
-		
-		break;
+	    timer_estado++;
+
+	    // Configurar o sprite de animação para andar
+	    if (sprite_index != spr_inimigo_bukito_andando) {
+	        image_index = 0;
+	        velh = choose(1, -1); // Escolhe direção inicial: direita (1) ou esquerda (-1)
+	    }
+	    sprite_index = spr_inimigo_bukito_andando;
+
+	    // Guardar a posição anterior
+	    var posicao_anterior = x;
+
+	    // Movimentação normal
+	    x += velh * .01;
+
+	    // Verificar se a posição mudou
+	    if (x == posicao_anterior) {
+	        // Se não estiver se movendo, inverte a direção
+	        velh = -velh;
+	        x += velh * 2; // Ajusta posição para sair da colisão
+	    }
+
+	    // Verificação de limite de distância
+	    var limite_distancia = 150; // Distância máxima a partir da posição inicial
+	    if (abs(x - x_inicial) > limite_distancia) {
+	        // Inverte direção ao atingir o limite
+	        velh = -velh;
+	    }
+
+	    // Condição de saída do estado
+	    if (irandom(timer_estado) > 200) {
+	        estado = choose("parado", "walk", "walk");
+	        timer_estado = 0;
+	    }
+
+	    // Tenta atacar o player, se dentro da distância
+	    scr_ataca_player_melee(obj_player, dist, xscale);
+
+	    break;
 	}
+
+
+
+
+
 	
 	case"hit":
 	{
@@ -113,18 +140,18 @@ switch(estado)
 		}
 		
 		//criando o dano
-		if (image_index >= 6 && dano == noone && image_index < 8)
+		if (image_index >= 5 && dano == noone && image_index < 7)
 		{
 			dano = instance_create_layer(x + sprite_width/2, y - sprite_height/3, layer, obj_dano);
 			dano.dano = ataque;
 			dano.pai = id;
 			// Define o tamanho específico do objeto de dano
-		    dano.image_xscale = 1.2; // Altera a escala horizontal (2x maior)
-		    dano.image_yscale = 1.2; // Altera a escala vertical (1.5x maior)
+		    dano.image_xscale = 1.5; // Altera a escala horizontal (2x maior)
+		    dano.image_yscale = 1.4; // Altera a escala vertical (1.5x maior)
 		}
 		
 		//Destruindo o dano
-		if (dano != noone && image_index >= 8)
+		if (dano != noone && image_index >= 7)
 		{
 			instance_destroy(dano);
 			dano = noone;

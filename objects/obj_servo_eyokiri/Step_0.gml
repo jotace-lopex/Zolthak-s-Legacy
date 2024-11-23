@@ -68,7 +68,6 @@ if (instance_exists(obj_player))
     }
 }
 
-// No evento Step do obj_servo_eyokiri, adicione:
 if (instance_exists(self)) // Verifica se o objeto ainda existe
 {
     // Verifica se o sprite de ataque terminou

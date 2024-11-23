@@ -45,7 +45,7 @@
     ],
     "top":0,
   },
-  "origin":9,
+  "origin":7,
   "parent":{
     "name":"eyokiri",
     "path":"folders/Sprites/Inimigos/eyokiri.yy",
@@ -107,7 +107,7 @@
     "visibleRange":null,
     "volume":1.0,
     "xorigin":25,
-    "yorigin":43,
+    "yorigin":44,
   },
   "swatchColours":null,
   "swfPrecision":0.5,

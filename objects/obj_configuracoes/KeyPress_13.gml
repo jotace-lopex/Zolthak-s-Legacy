@@ -10,11 +10,11 @@ if (index == 0) {
     } else {
         // Restart the music based on the current room
         if (room == rm_menu) {
-            global.room_music = audio_play_sound(snd_inicial, 1, true);
+            global.room_music = audio_play_sound(snd_menu, 1, true);
         } else if (room == rm_jogo || room == rm_creditos) {
-            global.room_music = audio_play_sound(snd_inicial, 1, true);
+            global.room_music = audio_play_sound(snd_menu, 1, true);
         } else if (room == rm_configuracao) {
-            global.room_music = audio_play_sound(snd_inicial, 1, true);
+            global.room_music = audio_play_sound(snd_menu, 1, true);
         }
     }
 } else if (index == 2) {

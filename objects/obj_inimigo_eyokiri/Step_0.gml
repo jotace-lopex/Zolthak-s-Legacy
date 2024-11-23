@@ -1,3 +1,9 @@
+if (global.is_paused) {
+    // Impede a execução do restante do código, ou apenas a parte que você quer pausar
+    exit;  // Faz o código da lógica não ser executado enquanto estiver pausado
+}
+
+
 var _chao = place_meeting(x, y + 1, obj_block);
 
 switch(estado)
@@ -122,7 +128,7 @@ switch(estado)
         tempo_ataque++;
         
         // Criando o dano (se necessário)
-        if (image_index >= 0 && dano == noone && image_index < 6 && posso)
+        if (image_index >= 1 && dano == noone && image_index < 4 && posso)
         {
             dano = instance_create_layer(x + sprite_width/2, y - sprite_height/2, layer, obj_dano);
             dano.dano = ataque;
@@ -131,7 +137,7 @@ switch(estado)
         }
         
         // Destruindo o dano após o ataque
-        if (dano != noone && image_index >= 6)
+        if (dano != noone && image_index >= 4)
         {
             instance_destroy(dano);
             dano = noone;
@@ -209,7 +215,7 @@ switch(estado)
         {
             // Iniciando o que for preciso para esse estado
             image_index = 0; 
-            screenshake(20);
+            screenshake(12);
         }
         sprite_index = spr_inimigo_eyokiri_morte;
         
@@ -222,7 +228,7 @@ switch(estado)
             {
                 if (irandom(99) < 50) 
                 {
-                    instance_create_layer(x + sprite_width/7, y - sprite_height/2.5, layer, obj_drop_servo);
+                    instance_create_layer(x + sprite_width/7, y - sprite_height/2.5, layer, obj_drop_servo_eyokiri);
                 }
                 instance_destroy();
             }

@@ -9,7 +9,7 @@ _cam.alvo = id;
 event_inherited();
 
 // Configurações de vida do jogador
-vida_max = 20;
+vida_max = 100;
 vida_atual = vida_max;
 
 //Configuração de estamina
@@ -46,7 +46,7 @@ dash_cooldown = 0;     // Tempo de recarga para o dash
 
 //invencivel
 invencivel = false;
-invencivel_timer = room_speed * 3;
+invencivel_timer = room_speed * 1.3;
 tempo_invencivel = invencivel_timer;
 
 //rastro movendo
@@ -92,3 +92,5 @@ finaliza_ataque = function()
         dano = noone;
     }
 }
+
+conjurando_som_tocado = false;

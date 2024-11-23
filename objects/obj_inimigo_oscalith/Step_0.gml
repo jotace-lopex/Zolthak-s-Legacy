@@ -1,3 +1,8 @@
+if (global.is_paused) {
+    // Impede a execução do restante do código, ou apenas a parte que você quer pausar
+    exit;  // Faz o código da lógica não ser executado enquanto estiver pausado
+}
+
 var _chao = place_meeting(x, y + 1, obj_block);
 
 switch(estado)
@@ -222,7 +227,7 @@ switch(estado)
             {
                 if (irandom(99) < 50) 
                 {
-                    instance_create_layer(x + sprite_width/7, y - sprite_height/2.5, layer, obj_drop_servo);
+                    instance_create_layer(x + sprite_width/7, y - sprite_height/2.5, layer, obj_drop_servo_eyokiri);
                 }
                 instance_destroy();
             }

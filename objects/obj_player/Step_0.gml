@@ -1,4 +1,8 @@
 // Variáveis de controle de entrada
+if (global.is_paused) {
+    // Impede o movimento ou outras ações enquanto o jogo estiver pausado
+    exit;
+}
 
 //checando se o objeto transição existe
 if (instance_exists(obj_transicao)) exit;
@@ -559,7 +563,15 @@ switch (estado)
 	
 	#region conjurando
 	case "conjurando":
+	
+	
 	{
+		if (!conjurando_som_tocado) {
+            if (global.sound_effects_on) {
+                audio_play_sound(Add_eu_vou_destruir_tudo, 2, false);
+            }
+            conjurando_som_tocado = true;
+        }
     // Verifica se o jogador está no estado "parado" e em contato com o chão
     if (_chao) 
     {
@@ -581,6 +593,10 @@ switch (estado)
             _beam.image_xscale = 1;
             _beam.image_yscale = 1;
 			screenshake(4);
+			
+			if (global.sound_effects_on) {
+				sound_effect = audio_play_sound(basicbeam_fire, 2, false);
+			}
         }
 
         // Criando o obj_dano com base nos frames do obj_skill_kaiser_beam

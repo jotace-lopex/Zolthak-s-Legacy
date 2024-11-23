@@ -3,7 +3,8 @@
 
 // Inherit the parent event
 event_inherited();
-vida_max = 5;
+
+vida_max = 10;
 vida_atual = vida_max;
 
 max_velh = 1;
@@ -15,3 +16,5 @@ dist = 70;
 dano = noone;
 ataque = 2;
 posso = true;
+
+x_inicial = x;

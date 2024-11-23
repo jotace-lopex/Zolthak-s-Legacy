@@ -1,3 +1,6 @@
+audio_sound_gain(snd_menu, 0.3, 0);
+
+
 // Variáveis de alinhamento e posição
 atual = 0; // Reseta a opção selecionada
 margem = 0; // Reseta a margem para animação
