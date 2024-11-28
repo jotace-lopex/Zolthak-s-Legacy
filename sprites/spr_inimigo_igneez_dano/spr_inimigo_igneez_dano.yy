@@ -63,7 +63,7 @@
     },
     "name":"spr_inimigo_igneez_dano",
     "playback":1,
-    "playbackSpeed":10.0,
+    "playbackSpeed":25.0,
     "playbackSpeedType":0,
     "resourceType":"GMSequence",
     "resourceVersion":"2.0",

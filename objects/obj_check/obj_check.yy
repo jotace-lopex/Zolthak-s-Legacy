@@ -8,8 +8,8 @@
   "name":"obj_check",
   "overriddenProperties":[],
   "parent":{
-    "name":"Gerenciadores",
-    "path":"folders/Objetos/Gerenciadores.yy",
+    "name":"Musicas",
+    "path":"folders/Objetos/Musicas.yy",
   },
   "parentObjectId":null,
   "persistent":false,

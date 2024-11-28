@@ -4,6 +4,8 @@
 // Inherit the parent event
 event_inherited();
 
+
+
 //linha de distancia
 // Desenhar o retângulo de detecção
 // Variáveis de controle para desenhar o retângulo

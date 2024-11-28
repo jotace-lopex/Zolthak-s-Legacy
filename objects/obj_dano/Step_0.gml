@@ -30,13 +30,24 @@ try {
     for (var _i = 0; _i < ds_list_size(_aplicar_dano); _i++) {
         _outro = _aplicar_dano[| _i];
         if (variable_instance_exists(_outro, "vida_atual") && _outro.vida_atual > 0) {
-            _outro.estado = "hit";
-            _outro.image_index = 0;
+            
+			if (_outro.delay <= 0 && _outro.atacando = false)
+			{
+				_outro.estado = "hit";
+				_outro.image_index = 0;
+			}
+			
             _outro.vida_atual -= dano;
 
             // Screenshake para inimigos
             if (object_is_ancestor(_outro.object_index, obj_inimigo_pai)) {
                 screenshake(2);
+				
+				//Garantindo que o cara vai morrer, ISSO É IMPORTANTE!
+				if(_outro.vida_atual <=0)
+				{
+					_outro.estado = "morto";
+				}
             }
         }
     }

@@ -1,5 +1,3 @@
-
-
 // criando as estruturas do meu menu
 
 opcao1 =

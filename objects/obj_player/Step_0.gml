@@ -4,8 +4,28 @@ if (global.is_paused) {
     exit;
 }
 
+if (show_level_up_message) 
+{
+    level_up_timer -= 1;
+    if (level_up_timer <= 0) 
+    {
+        show_level_up_message = false; // Desativa a mensagem
+    }
+}
+
 //checando se o objeto transição existe
 if (instance_exists(obj_transicao)) exit;
+
+var _chao = place_meeting(x, y + 1, obj_block);
+
+// Entrada do jogador controles
+right = keyboard_check(ord("D")) || keyboard_check(vk_right);
+left = keyboard_check(ord("A")) || keyboard_check(vk_left);
+jump = keyboard_check_pressed(vk_space);
+attack = keyboard_check(ord("J")) || keyboard_check(vk_numpad0);
+dash = keyboard_check_pressed(ord("K")) || keyboard_check_pressed(vk_shift);
+skill = keyboard_check_pressed(ord("U")) || keyboard_check_pressed(vk_numpad1);
+down = keyboard_check(ord("S")) || keyboard_check(vk_down);
 
 //controlando invencibilidade
 if (invencivel && tempo_invencivel > 0)
@@ -19,23 +39,8 @@ else
 	image_alpha = 1;
 }
 
-var _right, _left, _jump, _attack, _dash;
-var _chao = place_meeting(x, y + 1, obj_block);
-var _touch_right = obj_dpad_direita.toque;
-var _touch_left = obj_dpad_esquerda.toque;
-var _touch_atk = obj_botao_atk.toque;
-var _touch_pulo = obj_botao_pulo.toque;
-var _cast = keyboard_check_pressed(ord("U"));
-
-// Entrada do jogador controles
-_right = keyboard_check(ord("D")) || _touch_right;
-_left = keyboard_check(ord("A")) || _touch_left;
-_jump = keyboard_check_pressed(vk_space) || _touch_pulo;
-_attack = keyboard_check_pressed(ord("J")) || _touch_atk;
-_dash = keyboard_check_pressed(ord("K"));
-
 // Verifica se o jogador pode conjurar
-if (_cast && estado != "morto" && estado != "dash" && estado != "pulando" && estado != "conjurando" &&
+if (power_up_skill && skill && estado != "morto" && estado != "dash" && estado != "pulando" && estado != "conjurando" &&
 energia_atual >= custo_kaise_beam)
 {
     estado = "conjurando";
@@ -83,9 +88,9 @@ else
 
 
 // Lógica do dash (consome estamina)
-if (_dash && dash_cooldown <= 0 && estamina_atual > 0 && estado != "morto" && estado != "conjurando") 
+if (dash && dash_cooldown <= 0 && estamina_atual > 0 && estado != "morto" && estado != "conjurando") 
 {
-    if (_right || _left) 
+    if (right || left) 
 	{
 		screenshake(2);
         estado = "dash";
@@ -104,12 +109,12 @@ if (!_chao)
     }
 }
 
-velh = (_right - _left) * max_velh * global.vel_mult;
+velh = (right - left) * max_velh * global.vel_mult;
 
 // Código de movimentação (não se aplica durante o dash)
 if (estado != "dash")
 {
-    velh = (_right - _left) * max_velh * global.vel_mult;
+    velh = (right - left) * max_velh * global.vel_mult;
 }
 
 // Máquina de estados (movimento, pulo, ataque, dash, etc.)
@@ -124,19 +129,19 @@ switch (estado)
 		{
             estado = "movendo";
         } 
-		else if (_jump || velv != 0) 
+		else if (jump || velv != 0) 
 		{
             estado = "pulando";
-            velv = (-max_velv * _jump);
+            velv = (-max_velv * jump);
             image_index = 0;
         } 
-		else if (_attack) 
+		else if (attack) 
 		{
             incia_ataque(_chao);
         } 
-		else if (_dash && dash_cooldown <= 0 && estamina_atual > 0) 
+		else if (dash && dash_cooldown <= 0 && estamina_atual > 0) 
 		{
-			if (_right || _left)
+			if (right || left)
 			{
 	            estado = "dash";
 	            dash_timer = dash_duration;
@@ -152,30 +157,38 @@ switch (estado)
     case "movendo": 
 	{
         sprite_index = spr_player_correndo;
+		if (!passos_som && _chao)
+			{
+				if (global.sound_effects_on) 
+				{
+	                audio_play_sound(snd_player_passos, 2, true, 4);	
+	            }
+				passos_som = true;
+			}
+		
 
         if (abs(velh) < .1) 
 		{
             estado = "parado";
             velh = 0;
         } 
-		else if (_jump || velv != 0) 
+		else if (jump || velv != 0) 
 		{
             estado = "pulando";
-            velv = (-max_velv * _jump);
+            velv = (-max_velv * jump);
             image_index = 0;
         } 
-		else if (_attack) 
+		else if (attack) 
 		{
             incia_ataque(_chao);
         } 
-		else if (_dash && dash_cooldown <= 0 && estamina_atual > 0) 
+		else if (dash && dash_cooldown <= 0 && estamina_atual > 0) 
 		{
             estado = "dash";
             dash_timer = dash_duration;
             dash_cooldown = 30;
         }
-		 // --- Início do código para rastro ---
-	    // Reduzindo o temporizador do rastro
+		
 	    if (rastro_timer <= 0) 
 			{
 		        var _rastro = instance_create_layer(x, y, layer, obj_rastro_run);
@@ -191,7 +204,6 @@ switch (estado)
 			{
 		        rastro_timer--;   // Reduzindo o temporizador
 		    }
-	    // --- Fim do código para rastro ---
         break;
     }
 	#endregion
@@ -212,10 +224,19 @@ switch (estado)
 			{
                 image_index = image_number - 1;
             }
+			if (!pulo_som)
+			{
+				if (global.sound_effects_on) 
+				{
+			        var _som_escolhido = choose(snd_player_pulo, snd_player_pulo_1);
+			        audio_play_sound(_som_escolhido, 2, false, 1);
+	            }
+				pulo_som = true;
+			}
         }
 		
 		//condição de troca de estado
-		if (_attack)
+		if (attack)
 		{
 			incia_ataque(_chao);
 		}
@@ -231,7 +252,7 @@ switch (estado)
 		else 
 		{
 	        // Se não estiver no chão, verifique se pode pular novamente
-	        if (_jump && pulos_restantes > 0) 
+	        if (jump && pulos_restantes > 0 && pulo_duplo_power_up) 
 			{
 				screenshake(2);
 	            // Pulo duplo
@@ -268,6 +289,11 @@ switch (estado)
 			{
 		        rastro_timer--;   // Reduzindo o temporizador
 		    }
+			if (estado != "pulando") 
+			{
+				audio_stop_sound(snd_player_passos)
+				pulo_som = false;
+			}
         break;
     }
 	#endregion
@@ -341,6 +367,16 @@ switch (estado)
 			sprite_index = spr_player_ataque_ar1;
 			image_index = 0;
 		}
+		if (!ataque_ar_som)
+			{
+				if (global.sound_effects_on) 
+				{
+	                audio_play_sound(snd_player_atk_1, 2, false, 2);
+					audio_play_sound(snd_slash_1, 2, false, 1);
+				
+	            }
+				ataque_ar_som = true;
+			}
 		
 		// Criando objeto dano
         if (image_index >= 1 && dano == noone && posso) 
@@ -367,6 +403,10 @@ switch (estado)
                 dano = noone;
             }
 		}
+		if (estado != "ataque aereo") 
+			{
+			    ataque_ar_som = false;
+			}
 		
 		break;
 	}
@@ -381,12 +421,43 @@ switch (estado)
         if (combo == 0) 
 		{
             sprite_index = spr_player_ataque1;
-        } else if (combo == 1) 
+			if (!ataque1_som)
+			{
+				if (global.sound_effects_on) 
+				{
+	                audio_play_sound(snd_player_atk_1, 2, false, 2);
+					audio_play_sound(snd_slash_1, 2, false, 1);
+				
+	            }
+				ataque1_som = true;
+			}
+        } 
+		else if (combo == 1) 
 		{
             sprite_index = spr_player_ataque2;
+			if (!ataque2_som)
+			{
+				if (global.sound_effects_on) 
+				{
+	                audio_play_sound(snd_player_atk_2, 2, false, 2);
+					audio_play_sound(snd_slash_2, 2, false, 1);
+				
+	            }
+				ataque2_som = true;
+			}
         } else if (combo == 2) 
 		{
             sprite_index = spr_player_ataque3;
+			if (!ataque3_som)
+			{
+				if (global.sound_effects_on) 
+				{
+	                audio_play_sound(snd_player_atk_3, 2, false, 2);
+					audio_play_sound(snd_slash_3, 2, false, 1);
+				
+	            }
+				ataque3_som = true;
+			}
         }
 
         // Criando objeto dano
@@ -399,7 +470,7 @@ switch (estado)
         }
 
         // Configurando com buff
-        if (_attack && combo < 2) 
+        if (attack && combo < 2) 
 		{
             ataque_buff = room_speed;
         }
@@ -429,9 +500,9 @@ switch (estado)
             finaliza_ataque();
         }
 
-        if (_dash && dash_cooldown <= 0 && estamina_atual > 0) 
+        if (dash && dash_cooldown <= 0 && estamina_atual > 0) 
 		{
-			if (_right || _left)
+			if (right || left)
 			{
 	            estado = "dash";
 	            dash_timer = dash_duration;
@@ -443,6 +514,13 @@ switch (estado)
             estado = "pulando";
             image_index = 0;
         }
+		
+		if (estado != "ataque") 
+			{
+			    ataque1_som = false;
+				ataque2_som = false;
+				ataque3_som = false;// Permite que o som toque novamente na próxima conjuração
+			}
         break;
     }
 	#endregion
@@ -454,11 +532,11 @@ switch (estado)
         dash_timer--; // Reduzindo o tempo do dash
 
         // Definindo a direção e velocidade do dash
-        if (_right) 
+        if (right) 
 		{
             velh = dash_speed;
         } 
-		else if (_left) 
+		else if (left) 
 		{
             velh = -dash_speed;
         }
@@ -490,8 +568,20 @@ switch (estado)
 	    if (sprite_index != spr_player_machucado)
 	    {
 	        sprite_index = spr_player_machucado;
+			conjurando_som_tocado = true;
 	        image_index = 0;
 	        screenshake(4);
+			if (!hit_som)
+			{
+				if (global.sound_effects_on) 
+				{
+	                audio_play_sound(snd_player_hit, 2, false, 5);
+			        var _som_escolhido = choose(snd_enemy_hitting_1, snd_enemy_hitting_2, snd_enemy_hitting_3);
+			        audio_play_sound(_som_escolhido, 2, false, 2);
+				
+	            }
+				hit_som = true;
+			}
 			
 			//deixando o player invencivel
 			invencivel = true;
@@ -529,6 +619,10 @@ switch (estado)
 	            estado = "morto";
 	        }
 	    }
+		if (estado != "hit") 
+			{
+			    hit_som = false;
+			}
 	    break;
 	}
 	#endregion
@@ -563,15 +657,18 @@ switch (estado)
 	
 	#region conjurando
 	case "conjurando":
-	
-	
 	{
-		if (!conjurando_som_tocado) {
-            if (global.sound_effects_on) {
-                audio_play_sound(Add_eu_vou_destruir_tudo, 2, false);
-            }
-            conjurando_som_tocado = true;
-        }
+		if (!conjurando_som_tocado) 
+		{
+		    if (global.sound_effects_on) 
+		    {
+		        // Escolhe aleatoriamente um dos dois sons
+		        var _som_escolhido = choose(snd_add_eu_vou_destruir_tudo, snd_player_skill_alt);
+		        audio_play_sound(_som_escolhido, 2, false, 2);
+		    }
+		    conjurando_som_tocado = true; // Marca que o som foi tocado
+		}
+
     // Verifica se o jogador está no estado "parado" e em contato com o chão
     if (_chao) 
     {
@@ -595,7 +692,7 @@ switch (estado)
 			screenshake(4);
 			
 			if (global.sound_effects_on) {
-				sound_effect = audio_play_sound(basicbeam_fire, 2, false);
+				sound_effect = audio_play_sound(snd_basicbeam_fire, 2, false);
 			}
         }
 
@@ -604,7 +701,7 @@ switch (estado)
         {
             // Criar o obj_dano com a mesma posição e tamanho do obj_skill_kaiser_beam
             dano = instance_create_layer(x + sprite_width / 0.089, y - sprite_height / 1.4, layer, obj_dano);
-            dano.dano = ataque; // Define o dano com base no ataque do player
+            dano.dano = ataque/3; // Define o dano com base no ataque do player
             dano.pai = id; // Define o dono do dano como o player
 
             dano.image_xscale = 11; // Copia a escala horizontal do beam
@@ -632,10 +729,19 @@ switch (estado)
 	        // Caso não tenha energia suficiente, retorna ao estado "parado" sem fazer a conjuração
 	        estado = "parado"; 
 	    }
+		// Resetar conjurando_som_tocado se o estado mudar
+		if (estado != "conjurando") 
+		{
+		    conjurando_som_tocado = false; // Permite que o som toque novamente na próxima conjuração
+		}
 
 	    break;
 	}
+	
 	#endregion
+	
+	
+
 
 	
 	//Estado padrão PARADO
@@ -646,4 +752,14 @@ switch (estado)
 	
 }
 
-show_debug_message(tempo_invencivel);
+//Garantir que o som possa ser tocado novamente caso seja interrompido durante o estado conjurando
+if (estado != "conjurando") 
+	{
+		conjurando_som_tocado = false; // Permite que o som toque novamente na próxima conjuração
+	}
+	
+if (estado != "movendo" || !_chao || estado = "morto") 
+		{
+			audio_stop_sound(snd_player_passos)
+			passos_som = false;
+		}

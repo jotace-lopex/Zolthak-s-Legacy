@@ -1,0 +1,25 @@
+{
+  "$GMSound":"",
+  "%Name":"snd_player_passos",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "bitRate":128,
+  "compression":0,
+  "conversionMode":0,
+  "duration":2.52,
+  "name":"snd_player_passos",
+  "parent":{
+    "name":"Sons",
+    "path":"folders/Sons.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"snd_player_passos.mp3",
+  "type":1,
+  "volume":1.0,
+}

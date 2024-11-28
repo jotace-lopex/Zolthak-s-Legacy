@@ -18,3 +18,4 @@ ataque = 2;
 posso = true;
 
 x_inicial = x;
+hit_som = false;

@@ -187,8 +187,19 @@ switch(estado)
         velh = 0;
         if (sprite_index != spr_inimigo_oscalith_dano)
         {
+            if (global.sound_effects_on) 
+				{
+			        var _som_escolhido = choose(snd_blade_hit_1, snd_blade_hit_2);
+			        audio_play_sound(_som_escolhido, 2, false, 1);
+				
+	            }
+				hit_som = true;
             // Iniciando a animação de dano
             image_index = 0;
+			if (estado != "hit") 
+			{
+			    hit_som = false;
+			}
         }
         sprite_index = spr_inimigo_oscalith_dano;
         
@@ -225,9 +236,9 @@ switch(estado)
             
             if (image_alpha <= 0) 
             {
-                if (irandom(99) < 50) 
+                if (obj_player.servo_oscalith = false && irandom(99) < 80) 
                 {
-                    instance_create_layer(x + sprite_width/7, y - sprite_height/2.5, layer, obj_drop_servo_eyokiri);
+                    instance_create_layer(x + sprite_width/7, y - sprite_height/2.5, layer, obj_drop_servo_oscalith);
                 }
                 instance_destroy();
             }

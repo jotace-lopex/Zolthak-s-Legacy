@@ -2,6 +2,12 @@
 // Você pode escrever seu código neste editor
 //KROLIUM
 
+if (global.is_paused) {
+    // Impede a execução do restante do código, ou apenas a parte que você quer pausar
+    exit;  // Faz o código da lógica não ser executado enquanto estiver pausado
+}
+
+
 var _chao = place_meeting(x, y + 1, obj_block);
 
 if (!_chao)
@@ -104,8 +110,19 @@ switch(estado)
 			//Iniciando o que for preciso para esse estado
 			image_index = 0;
 			//vida_atual--;
+			if (global.sound_effects_on) 
+				{
+			        var _som_escolhido = choose(snd_blade_hit_1, snd_blade_hit_2);
+			        audio_play_sound(_som_escolhido, 2, false, 1);
+				
+	            }
+				hit_som = true;
 		}
 		sprite_index = spr_inimigo_bukito_dano;
+		if (estado != "hit") 
+		{
+			hit_som = false;
+		}
 		
 		//Condição para sair de estado
 		if (image_index > image_number-1)

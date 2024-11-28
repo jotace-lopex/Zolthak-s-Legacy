@@ -66,7 +66,7 @@
     },
     "name":"spr_inimigo_goblin_atq",
     "playback":1,
-    "playbackSpeed":15.0,
+    "playbackSpeed":17.0,
     "playbackSpeedType":0,
     "resourceType":"GMSequence",
     "resourceVersion":"2.0",

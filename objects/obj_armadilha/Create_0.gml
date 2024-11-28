@@ -5,4 +5,4 @@
 event_inherited();
 
 dano = noone;
-ataque = 2;
+ataque = 15;

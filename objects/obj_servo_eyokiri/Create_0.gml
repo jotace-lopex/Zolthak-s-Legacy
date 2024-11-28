@@ -7,4 +7,4 @@ fade_speed = 0.01; // Velocidade do fade-in (ajuste conforme desejado)
 cura_timer = 0;
 
 // Intervalo de tempo em frames (15 segundos = 15 * room_speed)
-cura_intervalo = 15 * room_speed;
+cura_intervalo = 8 * room_speed;

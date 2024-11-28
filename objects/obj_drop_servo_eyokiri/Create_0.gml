@@ -5,4 +5,6 @@
 event_inherited();
 
 image_alpha = 0; // Inicia invisível
-fade_speed = 0.04;
+fade_speed = 0.1;
+
+get_item_som = false;

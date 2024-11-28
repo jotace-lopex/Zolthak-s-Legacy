@@ -110,8 +110,19 @@ switch(estado)
 			//Iniciando o que for preciso para esse estado
 			image_index = 0;
 			//vida_atual--;
+			if (global.sound_effects_on) 
+				{
+			        var _som_escolhido = choose(snd_blade_hit_1, snd_blade_hit_2);
+			        audio_play_sound(_som_escolhido, 2, false, 1);
+				
+	            }
+				hit_som = true;
 		}
 		sprite_index = spr_inimigo_sk_dano;
+		if (estado != "hit") 
+		{
+			hit_som = false;
+		}
 		
 		//Condição para sair de estado
 		if (image_index > image_number-1)

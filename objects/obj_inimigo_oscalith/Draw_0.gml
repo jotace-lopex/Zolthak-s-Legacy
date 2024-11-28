@@ -5,5 +5,5 @@
 event_inherited();
 
 //linha de distancia
-draw_line(x, y - sprite_height/2.7, x + (dist * xscale), y - sprite_height/2.7);
+//draw_line(x, y - sprite_height/2.7, x + (dist * xscale), y - sprite_height/2.7);
 

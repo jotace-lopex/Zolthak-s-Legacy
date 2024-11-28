@@ -5,7 +5,7 @@
 
 var _player = place_meeting(x, y, obj_player);
 
-var _ativar = keyboard_check_released(ord("F"));
+var _ativar = keyboard_check_released(ord("F")) || keyboard_check_pressed(vk_down);
 
 if (_player && _ativar)
 {

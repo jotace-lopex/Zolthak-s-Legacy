@@ -39,11 +39,10 @@ if (instance_exists(obj_player))
     cura_timer += 1;
 
     // Verifica se o intervalo foi atingido, se o player pode ser curado e se não está no estado "morto"
-    if (cura_timer >= cura_intervalo && _player.vida_atual < _player.vida_max && _player.estado != "morto" ||
-        keyboard_check_pressed(vk_numpad0)) 
+    if (cura_timer >= cura_intervalo && _player.vida_atual < _player.vida_max && _player.estado != "morto") 
     {
         // Restaura a vida do player
-        _player.vida_atual += 10;
+        _player.vida_atual += _player.vida_max * 0.15;
 
         // Garante que a vida não ultrapasse o máximo
         if (_player.vida_atual > _player.vida_max) 
@@ -76,4 +75,14 @@ if (instance_exists(self)) // Verifica se o objeto ainda existe
         // Retorna ao sprite parado após o último frame do ataque
         sprite_index = spr_servo_eyokiri_parado;
     }
+}
+
+
+
+
+
+//Destruir quando pega outro servo
+if (obj_player.servo_eyokiri = false)
+{
+	instance_destroy();
 }

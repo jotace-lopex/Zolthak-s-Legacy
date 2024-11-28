@@ -9,7 +9,7 @@
   "bitRate":128,
   "compression":0,
   "conversionMode":0,
-  "duration":132.504,
+  "duration":139.96408,
   "name":"snd_menu",
   "parent":{
     "name":"Sons",
@@ -20,6 +20,6 @@
   "resourceVersion":"2.0",
   "sampleRate":44100,
   "soundFile":"snd_menu.mp3",
-  "type":0,
+  "type":1,
   "volume":1.0,
 }

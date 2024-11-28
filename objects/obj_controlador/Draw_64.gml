@@ -12,8 +12,6 @@ var _maxestamina = obj_player.estamina_max;
 var _energia = obj_player.energia_atual;
 var _maxenergia = obj_player.energia_max;
 
-//HUD
-draw_sprite_ext(spr_hud_barras, 0, 97, _huda - 500, _escala, _escala, 0, c_white, 1)
 
 //Barra de Vida
 draw_sprite_ext(spr_barra_vida, 0, 97, _huda - 500, (_vida/ _maxvida) * _escala, _escala + .4, 0, c_white, 1);
@@ -23,6 +21,9 @@ draw_sprite_ext(spr_barra_stm, 0, 79, _huda - 415, (_estamina/_maxestamina) * _e
 
 //Barra de Energia
 draw_sprite_ext(spr_barra_ene, 0, 79, _huda - 457, (_energia/_maxenergia) * _escala, _escala + .4,  0, c_white, 1);
+
+//HUD
+draw_sprite_ext(spr_hud_barras, 0, 97, _huda - 500, _escala, _escala, 0, c_white, 1)
 
 
 

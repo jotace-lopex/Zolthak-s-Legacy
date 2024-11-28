@@ -1,19 +1,17 @@
 /// @description Inserir descrição aqui
 // Você pode escrever seu código neste editor
-var _touch_up = obj_dpad_cima.toque;
-var _touch_down = obj_dpad_baixo.toque;
-var _touch_confirm = obj_botao_confirma.toque;
+
 
 // mudando de opção
 // descendo pelo menu
-if (keyboard_check_pressed(vk_down) || _touch_down)
+if (keyboard_check_pressed(vk_down))
 {
 	atual++;
 	margem = 0;
 }
 
 //subindo no menu
-if (keyboard_check_pressed(vk_up) || _touch_up) 
+if (keyboard_check_pressed(vk_up)) 
 {	
 	atual--;
 	//zerando a margem
@@ -24,7 +22,7 @@ if (keyboard_check_pressed(vk_up) || _touch_up)
 atual = clamp(atual, 0, array_length(menu) - 1);
 
 // se eu apertei enter, ele executa a função do menu
-if (keyboard_check_pressed(vk_enter) || _touch_confirm)
+if (keyboard_check_pressed(vk_enter))
 {
 	menu[atual].funcao();
 }

@@ -57,15 +57,21 @@ if (game_over)
         draw_set_color(c_white);
         draw_text(_meio_w, _meio_h, "G a m e - O v e r");
         draw_set_font(-1);
-
-        draw_text(_meio_w, _meio_h + 40, "Press ENTER to restart");
+		if(!MOBILE)
+		{
+			draw_text(_meio_w, _meio_h + 40, "Pressione ENTER para reiniciar");
+		}
+		if(MOBILE)
+		{
+			draw_text(_meio_w, _meio_h + 40, "Toque na tela para reiniciar");
+		}
 
         draw_set_valign(-1);
         draw_set_halign(-1);
         draw_set_alpha(-1);
 
         // Início do temporizador ao pressionar Enter
-        if (global.restart_timer == -1 && keyboard_check_pressed(vk_enter)) 
+        if (global.restart_timer == -1 && keyboard_check_pressed(vk_enter) || global.restart_timer == -1 && mouse_check_button_pressed(mb_left)) 
         {
             global.restart_timer = 120; // Defina o tempo de espera (60 frames = 1 segundo)
         }
